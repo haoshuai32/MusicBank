@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xLe-OW-Dan">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--我的-->
+        <scene sceneID="0Kx-v0-g5b">
+            <objects>
+                <navigationController id="xLe-OW-Dan" customClass="MusicBankNavigationController" customModule="MusicBank" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="house" catalog="system" selectedImage="house.fill" id="FR2-Q1-5hX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BOL-TR-uWv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="biK-T9-mwZ" kind="relationship" relationship="rootViewController" id="AKG-RU-INP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3IA-tN-pZg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196" y="163"/>
+        </scene>
+        <!--Music Bank Mine View Controller-->
+        <scene sceneID="xsJ-2n-90Q">
+            <objects>
+                <viewController id="biK-T9-mwZ" customClass="MusicBankMineViewController" customModule="MusicBank" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="owC-tW-bMf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RP7-o7-JOU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNo-6k-CLS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1201"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ne-Sw-giq">
+                                                <rect key="frame" x="186" y="352" width="35" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1201" id="JKm-3m-RU7"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="TNo-6k-CLS" secondAttribute="bottom" id="9rd-t7-NKh"/>
+                                    <constraint firstItem="TNo-6k-CLS" firstAttribute="trailing" secondItem="JO5-ro-wkc" secondAttribute="trailing" id="eu1-jK-QNw"/>
+                                    <constraint firstItem="TNo-6k-CLS" firstAttribute="top" secondItem="JO5-ro-wkc" secondAttribute="top" id="oCe-07-EbF"/>
+                                    <constraint firstItem="rUj-5g-VyH" firstAttribute="width" secondItem="TNo-6k-CLS" secondAttribute="width" id="p4F-dB-H5G"/>
+                                    <constraint firstItem="TNo-6k-CLS" firstAttribute="leading" secondItem="JO5-ro-wkc" secondAttribute="leading" id="qEn-dy-sDW"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="rUj-5g-VyH"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="JO5-ro-wkc"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RpT-aw-xU0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RP7-o7-JOU" firstAttribute="width" secondItem="owC-tW-bMf" secondAttribute="width" id="D0p-NB-spR"/>
+                            <constraint firstItem="RP7-o7-JOU" firstAttribute="leading" secondItem="RpT-aw-xU0" secondAttribute="leading" id="NCO-4D-6oS"/>
+                            <constraint firstItem="RP7-o7-JOU" firstAttribute="bottom" secondItem="RpT-aw-xU0" secondAttribute="bottom" id="e3M-K0-xll"/>
+                            <constraint firstItem="RP7-o7-JOU" firstAttribute="top" secondItem="RpT-aw-xU0" secondAttribute="top" id="e4J-UT-mUw"/>
+                            <constraint firstItem="RP7-o7-JOU" firstAttribute="trailing" secondItem="RpT-aw-xU0" secondAttribute="trailing" id="gGT-fu-a1r"/>
+                            <constraint firstItem="RP7-o7-JOU" firstAttribute="height" secondItem="owC-tW-bMf" secondAttribute="height" multiplier="0.809152" id="pNd-Bt-JQx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uM9-HV-9z6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suC-zG-Vwp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836.23188405797111" y="162.72321428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
