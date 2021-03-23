@@ -23,7 +23,7 @@ enum API {
     
     case getUserInfo(UID)
     
-    case updateUserInfo()
+    case updateUserInfo(UpdateUserModel)
     
     /// 获取首页信息 发现信息
     case getFind(UID?)

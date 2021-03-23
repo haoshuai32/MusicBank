@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MusicBankSongCell" customModule="MusicBank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="417" height="72.5"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="417" height="72.5"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="富士山下" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SP1-ZX-I1Z">
+                        <rect key="frame" x="16" y="16" width="385" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20.5" id="VlL-g7-J6g"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="陈奕迅-准备中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCZ-0M-Q3q">
+                        <rect key="frame" x="16" y="40.5" width="86" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="WmM-VK-PUT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="SP1-ZX-I1Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="0KD-rf-21T"/>
+                <constraint firstAttribute="trailing" secondItem="SP1-ZX-I1Z" secondAttribute="trailing" constant="16" id="8md-Rw-9dg"/>
+                <constraint firstItem="TCZ-0M-Q3q" firstAttribute="leading" secondItem="SP1-ZX-I1Z" secondAttribute="leading" id="Lra-PY-eNs"/>
+                <constraint firstItem="SP1-ZX-I1Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="VO1-Yl-eBF"/>
+                <constraint firstItem="TCZ-0M-Q3q" firstAttribute="top" secondItem="SP1-ZX-I1Z" secondAttribute="bottom" constant="4" id="hbb-8S-Au7"/>
+                <constraint firstAttribute="bottom" secondItem="TCZ-0M-Q3q" secondAttribute="bottom" constant="16" id="vEj-RS-F8r"/>
+            </constraints>
+            <size key="customSize" width="417" height="77"/>
+            <connections>
+                <outlet property="detailsLabel" destination="TCZ-0M-Q3q" id="fof-Ok-07X"/>
+                <outlet property="titleLabel" destination="SP1-ZX-I1Z" id="c1Q-kM-ndc"/>
+            </connections>
+            <point key="canvasLocation" x="-73.188405797101453" y="106.13839285714285"/>
+        </collectionViewCell>
+    </objects>
+</document>

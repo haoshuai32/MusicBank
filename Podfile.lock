@@ -1,0 +1,79 @@
+PODS:
+  - Alamofire (5.4.1)
+  - Differentiator (4.0.1)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - Kingfisher (6.2.1)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - ObjectMapper (4.2.0)
+  - ReactorKit (2.1.1):
+    - RxSwift (~> 5.0)
+    - WeakMapTable (~> 1.1)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.2)
+  - WeakMapTable (1.2.0)
+
+DEPENDENCIES:
+  - IGListDiffKit
+  - IGListKit
+  - Kingfisher
+  - Moya/RxSwift
+  - ObjectMapper
+  - ReactorKit
+  - Reusable
+  - RxDataSources
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Differentiator
+    - IGListDiffKit
+    - IGListKit
+    - Kingfisher
+    - Moya
+    - ObjectMapper
+    - ReactorKit
+    - Reusable
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - WeakMapTable
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  ReactorKit: 6d894a20c3d508344320901cd8e386fde92df4b6
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
+
+PODFILE CHECKSUM: ade04060485646b62159eec6bf8a67e77804c603
+
+COCOAPODS: 1.10.0

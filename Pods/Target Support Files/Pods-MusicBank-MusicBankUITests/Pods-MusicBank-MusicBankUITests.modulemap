@@ -1,0 +1,6 @@
+framework module Pods_MusicBank_MusicBankUITests {
+  umbrella header "Pods-MusicBank-MusicBankUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

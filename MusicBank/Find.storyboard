@@ -78,6 +78,48 @@
             </objects>
             <point key="canvasLocation" x="424.63768115942031" y="55.580357142857139"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="FMc-xH-jkX">
+            <objects>
+                <viewController id="U08-LS-WBJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ec7-QX-xbN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QTB-RK-i4e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eIb-oc-GMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" id="DEI-ql-cNb">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </objects>
+            <point key="canvasLocation" x="1597" y="39"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8bP-1q-YOr">
+            <objects>
+                <viewController id="284-Oh-VRq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="76S-Sn-Hhy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OrU-TW-eRi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B5j-a9-bJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" id="0nn-1G-3rZ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </objects>
+            <point key="canvasLocation" x="2545" y="39"/>
+        </scene>
     </scenes>
     <resources>
         <image name="mic.fill" catalog="system" width="108" height="128"/>

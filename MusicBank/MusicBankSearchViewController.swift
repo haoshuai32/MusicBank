@@ -16,7 +16,4 @@ class MusicBankSearchViewController: MusicBankViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
-
 }

@@ -16,10 +16,6 @@
 		2868F7DC2608851900110F54 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F7DA2608851900110F54 /* ToolItemCell.swift */; };
 		2868F7DD2608851900110F54 /* ToolItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2868F7DB2608851900110F54 /* ToolItemCell.xib */; };
 		2868F7E52608861800110F54 /* ToolItemSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F7E42608861800110F54 /* ToolItemSectionController.swift */; };
-		2868F8092608AD6200110F54 /* NowPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F8052608AD6200110F54 /* NowPlayable.swift */; };
-		2868F80A2608AD6200110F54 /* NowPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F8062608AD6200110F54 /* NowPlayableMetadata.swift */; };
-		2868F80B2608AD6200110F54 /* NowPlayableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F8072608AD6200110F54 /* NowPlayableError.swift */; };
-		2868F80C2608AD6200110F54 /* NowPlayableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F8082608AD6200110F54 /* NowPlayableCommand.swift */; };
 		2888C23925FC65FF00E6BB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C23825FC65FF00E6BB34 /* AppDelegate.swift */; };
 		2888C23B25FC65FF00E6BB34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C23A25FC65FF00E6BB34 /* SceneDelegate.swift */; };
 		2888C23D25FC65FF00E6BB34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C23C25FC65FF00E6BB34 /* ViewController.swift */; };
@@ -45,6 +41,23 @@
 		2888C2CE25FC902300E6BB34 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C2CD25FC902300E6BB34 /* String+Extension.swift */; };
 		2888C2D325FC906400E6BB34 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C2D225FC906400E6BB34 /* Permission.swift */; };
 		2888C2D825FC907800E6BB34 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C2D725FC907800E6BB34 /* Bundle+Extension.swift */; };
+		2E32FEC4260A2934009C1CD0 /* MusicBankPlayableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32FEC3260A2934009C1CD0 /* MusicBankPlayableCommand.swift */; };
+		2E32FEC9260A2986009C1CD0 /* MusicBankPlayableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32FEC8260A2986009C1CD0 /* MusicBankPlayableError.swift */; };
+		2E32FECE260A29C4009C1CD0 /* MusicBankPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32FECD260A29C4009C1CD0 /* MusicBankPlayableMetadata.swift */; };
+		2E32FED3260A29FF009C1CD0 /* MusicBankPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32FED2260A29FF009C1CD0 /* MusicBankPlayer.swift */; };
+		2E32FEDB260A2BB6009C1CD0 /* MusicBankPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32FEDA260A2BB6009C1CD0 /* MusicBankPlayable.swift */; };
+		2E32FEE0260A2C37009C1CD0 /* MusicBankAssetPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32FEDF260A2C37009C1CD0 /* MusicBankAssetPlayer.swift */; };
+		2E32FEE8260A2D5E009C1CD0 /* MusicBankSongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E32FEE7260A2D5E009C1CD0 /* MusicBankSongModel.swift */; };
+		2E92993A2608D20F006AB6C3 /* MusicBankSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9299382608D20F006AB6C3 /* MusicBankSongCell.swift */; };
+		2E92993B2608D20F006AB6C3 /* MusicBankSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9299392608D20F006AB6C3 /* MusicBankSongCell.xib */; };
+		2E9299442608D304006AB6C3 /* MusicBankAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9299422608D304006AB6C3 /* MusicBankAuthorCell.swift */; };
+		2E9299452608D304006AB6C3 /* MusicBankAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9299432608D304006AB6C3 /* MusicBankAuthorCell.xib */; };
+		2E92994B2608D32D006AB6C3 /* MusicBankAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9299492608D32D006AB6C3 /* MusicBankAlbumCell.swift */; };
+		2E92994C2608D32D006AB6C3 /* MusicBankAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E92994A2608D32D006AB6C3 /* MusicBankAlbumCell.xib */; };
+		2E92995B2608E0E3006AB6C3 /* MusicBankAlbumImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9299592608E0E3006AB6C3 /* MusicBankAlbumImageCell.swift */; };
+		2E92995C2608E0E3006AB6C3 /* MusicBankAlbumImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E92995A2608E0E3006AB6C3 /* MusicBankAlbumImageCell.xib */; };
+		2E92997E2608E890006AB6C3 /* MusicBankSongListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92997C2608E890006AB6C3 /* MusicBankSongListHeaderCell.swift */; };
+		2E92997F2608E890006AB6C3 /* MusicBankSongListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E92997D2608E890006AB6C3 /* MusicBankSongListHeaderCell.xib */; };
 		ACA7ABA6C589A55E7B68A7D7 /* Pods_MusicBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B40F3122BE795A6D267BE7 /* Pods_MusicBankTests.framework */; };
 		D4E7B19986A1F090DC7C0D24 /* Pods_MusicBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28317DB812D020F2F00249D /* Pods_MusicBank.framework */; };
 /* End PBXBuildFile section */
@@ -75,10 +88,6 @@
 		2868F7DA2608851900110F54 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		2868F7DB2608851900110F54 /* ToolItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolItemCell.xib; sourceTree = "<group>"; };
 		2868F7E42608861800110F54 /* ToolItemSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemSectionController.swift; sourceTree = "<group>"; };
-		2868F8052608AD6200110F54 /* NowPlayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayable.swift; sourceTree = "<group>"; };
-		2868F8062608AD6200110F54 /* NowPlayableMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableMetadata.swift; sourceTree = "<group>"; };
-		2868F8072608AD6200110F54 /* NowPlayableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableError.swift; sourceTree = "<group>"; };
-		2868F8082608AD6200110F54 /* NowPlayableCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableCommand.swift; sourceTree = "<group>"; };
 		2888C23525FC65FF00E6BB34 /* MusicBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2888C23825FC65FF00E6BB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2888C23A25FC65FF00E6BB34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +120,24 @@
 		2888C2D225FC906400E6BB34 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		2888C2D725FC907800E6BB34 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		2982A8003D6DB241726DFD82 /* Pods_MusicBank_MusicBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicBank_MusicBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E32FEC3260A2934009C1CD0 /* MusicBankPlayableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankPlayableCommand.swift; sourceTree = "<group>"; };
+		2E32FEC8260A2986009C1CD0 /* MusicBankPlayableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankPlayableError.swift; sourceTree = "<group>"; };
+		2E32FECD260A29C4009C1CD0 /* MusicBankPlayableMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankPlayableMetadata.swift; sourceTree = "<group>"; };
+		2E32FED2260A29FF009C1CD0 /* MusicBankPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankPlayer.swift; sourceTree = "<group>"; };
+		2E32FEDA260A2BB6009C1CD0 /* MusicBankPlayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankPlayable.swift; sourceTree = "<group>"; };
+		2E32FEDF260A2C37009C1CD0 /* MusicBankAssetPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankAssetPlayer.swift; sourceTree = "<group>"; };
+		2E32FEE7260A2D5E009C1CD0 /* MusicBankSongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankSongModel.swift; sourceTree = "<group>"; };
+		2E9299382608D20F006AB6C3 /* MusicBankSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankSongCell.swift; sourceTree = "<group>"; };
+		2E9299392608D20F006AB6C3 /* MusicBankSongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBankSongCell.xib; sourceTree = "<group>"; };
+		2E9299422608D304006AB6C3 /* MusicBankAuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankAuthorCell.swift; sourceTree = "<group>"; };
+		2E9299432608D304006AB6C3 /* MusicBankAuthorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBankAuthorCell.xib; sourceTree = "<group>"; };
+		2E9299492608D32D006AB6C3 /* MusicBankAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankAlbumCell.swift; sourceTree = "<group>"; };
+		2E92994A2608D32D006AB6C3 /* MusicBankAlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBankAlbumCell.xib; sourceTree = "<group>"; };
+		2E9299592608E0E3006AB6C3 /* MusicBankAlbumImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankAlbumImageCell.swift; sourceTree = "<group>"; };
+		2E92995A2608E0E3006AB6C3 /* MusicBankAlbumImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBankAlbumImageCell.xib; sourceTree = "<group>"; };
+		2E92997C2608E890006AB6C3 /* MusicBankSongListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankSongListHeaderCell.swift; sourceTree = "<group>"; };
+		2E92997D2608E890006AB6C3 /* MusicBankSongListHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBankSongListHeaderCell.xib; sourceTree = "<group>"; };
+		2E9299832608E96A006AB6C3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		389AA1B2340A109C44C9AD10 /* Pods-MusicBank-MusicBankUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicBank-MusicBankUITests.debug.xcconfig"; path = "Target Support Files/Pods-MusicBank-MusicBankUITests/Pods-MusicBank-MusicBankUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		594688BBFF04CA7623B82930 /* Pods-MusicBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicBank.debug.xcconfig"; path = "Target Support Files/Pods-MusicBank/Pods-MusicBank.debug.xcconfig"; sourceTree = "<group>"; };
 		85DC60B3B4F983293FD5EFE5 /* Pods-MusicBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicBankTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicBankTests/Pods-MusicBankTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,10 +207,20 @@
 		2868F7C92608750100110F54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E9299382608D20F006AB6C3 /* MusicBankSongCell.swift */,
+				2E9299392608D20F006AB6C3 /* MusicBankSongCell.xib */,
+				2E9299422608D304006AB6C3 /* MusicBankAuthorCell.swift */,
+				2E9299432608D304006AB6C3 /* MusicBankAuthorCell.xib */,
+				2E9299492608D32D006AB6C3 /* MusicBankAlbumCell.swift */,
+				2E92994A2608D32D006AB6C3 /* MusicBankAlbumCell.xib */,
+				2E9299592608E0E3006AB6C3 /* MusicBankAlbumImageCell.swift */,
+				2E92995A2608E0E3006AB6C3 /* MusicBankAlbumImageCell.xib */,
 				2868F7CA2608753700110F54 /* ToolCell.swift */,
 				2868F7CB2608753700110F54 /* ToolCell.xib */,
 				2868F7DA2608851900110F54 /* ToolItemCell.swift */,
 				2868F7DB2608851900110F54 /* ToolItemCell.xib */,
+				2E92997C2608E890006AB6C3 /* MusicBankSongListHeaderCell.swift */,
+				2E92997D2608E890006AB6C3 /* MusicBankSongListHeaderCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -191,10 +228,13 @@
 		2868F7F82608AA9D00110F54 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				2868F8052608AD6200110F54 /* NowPlayable.swift */,
-				2868F8082608AD6200110F54 /* NowPlayableCommand.swift */,
-				2868F8072608AD6200110F54 /* NowPlayableError.swift */,
-				2868F8062608AD6200110F54 /* NowPlayableMetadata.swift */,
+				2E32FEC3260A2934009C1CD0 /* MusicBankPlayableCommand.swift */,
+				2E32FEC8260A2986009C1CD0 /* MusicBankPlayableError.swift */,
+				2E32FECD260A29C4009C1CD0 /* MusicBankPlayableMetadata.swift */,
+				2E32FEDA260A2BB6009C1CD0 /* MusicBankPlayable.swift */,
+				2E32FED2260A29FF009C1CD0 /* MusicBankPlayer.swift */,
+				2E32FEDF260A2C37009C1CD0 /* MusicBankAssetPlayer.swift */,
+				2E32FEE7260A2D5E009C1CD0 /* MusicBankSongModel.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -202,6 +242,7 @@
 		2888C22C25FC65FF00E6BB34 = {
 			isa = PBXGroup;
 			children = (
+				2E9299832608E96A006AB6C3 /* README.md */,
 				2888C23725FC65FF00E6BB34 /* MusicBank */,
 				2888C24E25FC660300E6BB34 /* MusicBankTests */,
 				2888C25925FC660300E6BB34 /* MusicBankUITests */,
@@ -266,7 +307,6 @@
 				2888C2A025FC69AE00E6BB34 /* Find.storyboard */,
 				2888C28325FC675C00E6BB34 /* MusicBankFindViewController.swift */,
 				2888C29625FC680300E6BB34 /* MusicBankSearchViewController.swift */,
-				2888C2B025FC8C6000E6BB34 /* MusicBankPlayerViewController.swift */,
 			);
 			name = "Find(发现)";
 			sourceTree = "<group>";
@@ -280,6 +320,7 @@
 				2888C27D25FC66B700E6BB34 /* MusicBankTableViewCell.swift */,
 				2888C2C325FC8F0E00E6BB34 /* MusicBankError.swift */,
 				2868F71E26085C8200110F54 /* MusicBankModel.swift */,
+				2888C2B025FC8C6000E6BB34 /* MusicBankPlayerViewController.swift */,
 			);
 			name = "MusicBank(基类)";
 			sourceTree = "<group>";
@@ -431,9 +472,14 @@
 			files = (
 				2888C24525FC660300E6BB34 /* LaunchScreen.storyboard in Resources */,
 				2888C24225FC660300E6BB34 /* Assets.xcassets in Resources */,
+				2E92993B2608D20F006AB6C3 /* MusicBankSongCell.xib in Resources */,
 				2888C2A925FC6A2500E6BB34 /* Mine.storyboard in Resources */,
 				2868F7DD2608851900110F54 /* ToolItemCell.xib in Resources */,
+				2E92995C2608E0E3006AB6C3 /* MusicBankAlbumImageCell.xib in Resources */,
 				2888C24025FC65FF00E6BB34 /* Main.storyboard in Resources */,
+				2E9299452608D304006AB6C3 /* MusicBankAuthorCell.xib in Resources */,
+				2E92994C2608D32D006AB6C3 /* MusicBankAlbumCell.xib in Resources */,
+				2E92997F2608E890006AB6C3 /* MusicBankSongListHeaderCell.xib in Resources */,
 				2868F7CD2608753700110F54 /* ToolCell.xib in Resources */,
 				2888C2A125FC69AE00E6BB34 /* Find.storyboard in Resources */,
 			);
@@ -564,30 +610,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				2888C2CE25FC902300E6BB34 /* String+Extension.swift in Sources */,
+				2E32FEDB260A2BB6009C1CD0 /* MusicBankPlayable.swift in Sources */,
 				2868F71926085B0C00110F54 /* API.swift in Sources */,
+				2E32FECE260A29C4009C1CD0 /* MusicBankPlayableMetadata.swift in Sources */,
 				2888C26C25FC664A00E6BB34 /* MusicBankViewController.swift in Sources */,
 				2888C27925FC669A00E6BB34 /* MusicBankNavigationController.swift in Sources */,
+				2E9299442608D304006AB6C3 /* MusicBankAuthorCell.swift in Sources */,
+				2E32FEC4260A2934009C1CD0 /* MusicBankPlayableCommand.swift in Sources */,
 				2888C2C925FC901200E6BB34 /* Data+Extension.swift in Sources */,
+				2E32FEE0260A2C37009C1CD0 /* MusicBankAssetPlayer.swift in Sources */,
 				2888C29725FC680300E6BB34 /* MusicBankSearchViewController.swift in Sources */,
 				2868F7CC2608753700110F54 /* ToolCell.swift in Sources */,
-				2868F8092608AD6200110F54 /* NowPlayable.swift in Sources */,
-				2868F80C2608AD6200110F54 /* NowPlayableCommand.swift in Sources */,
+				2E92993A2608D20F006AB6C3 /* MusicBankSongCell.swift in Sources */,
+				2E92995B2608E0E3006AB6C3 /* MusicBankAlbumImageCell.swift in Sources */,
 				2888C2B725FC8CAB00E6BB34 /* UIImage+Extension.swift in Sources */,
-				2868F80A2608AD6200110F54 /* NowPlayableMetadata.swift in Sources */,
 				2888C23D25FC65FF00E6BB34 /* ViewController.swift in Sources */,
+				2E32FEE8260A2D5E009C1CD0 /* MusicBankSongModel.swift in Sources */,
 				2888C2D825FC907800E6BB34 /* Bundle+Extension.swift in Sources */,
 				2888C28425FC675C00E6BB34 /* MusicBankFindViewController.swift in Sources */,
 				2888C29C25FC68B100E6BB34 /* MusicBankMineViewController.swift in Sources */,
 				2868F7C12608740200110F54 /* ToolSectionController.swift in Sources */,
+				2E32FEC9260A2986009C1CD0 /* MusicBankPlayableError.swift in Sources */,
 				2888C2B125FC8C6000E6BB34 /* MusicBankPlayerViewController.swift in Sources */,
-				2868F80B2608AD6200110F54 /* NowPlayableError.swift in Sources */,
 				2868F7DC2608851900110F54 /* ToolItemCell.swift in Sources */,
 				2888C27425FC666F00E6BB34 /* MusicBankTabBarController.swift in Sources */,
+				2E92994B2608D32D006AB6C3 /* MusicBankAlbumCell.swift in Sources */,
 				2868F7E52608861800110F54 /* ToolItemSectionController.swift in Sources */,
 				2868F71F26085C8200110F54 /* MusicBankModel.swift in Sources */,
 				2888C23925FC65FF00E6BB34 /* AppDelegate.swift in Sources */,
 				2888C2C425FC8F0E00E6BB34 /* MusicBankError.swift in Sources */,
+				2E32FED3260A29FF009C1CD0 /* MusicBankPlayer.swift in Sources */,
 				2888C2BF25FC8CD400E6BB34 /* UIColor+Extension.swift in Sources */,
+				2E92997E2608E890006AB6C3 /* MusicBankSongListHeaderCell.swift in Sources */,
 				2888C27E25FC66B700E6BB34 /* MusicBankTableViewCell.swift in Sources */,
 				2888C2D325FC906400E6BB34 /* Permission.swift in Sources */,
 				2888C23B25FC65FF00E6BB34 /* SceneDelegate.swift in Sources */,
