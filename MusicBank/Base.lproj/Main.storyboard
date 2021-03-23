@@ -111,6 +111,9 @@
                                                         <constraint firstAttribute="width" constant="25" id="kre-P2-r8K"/>
                                                     </constraints>
                                                     <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="shareButtonAction:" destination="qqG-cn-yj2" eventType="touchUpInside" id="Fkr-ic-En1"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9B-7z-ufi">
                                                     <rect key="frame" x="20" y="13.5" width="25" height="25"/>
@@ -119,6 +122,9 @@
                                                         <constraint firstAttribute="width" constant="25" id="an3-ey-BHf"/>
                                                     </constraints>
                                                     <state key="normal" image="folder.fill.badge.person.crop" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="backButtonAction:" destination="qqG-cn-yj2" eventType="touchUpInside" id="VAH-kA-YVI"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,6 +166,9 @@
                                                 <constraint firstItem="bUa-kk-aQp" firstAttribute="leading" secondItem="Xb6-UJ-4af" secondAttribute="leading" constant="13" id="rpQ-Bf-pzO"/>
                                                 <constraint firstAttribute="bottom" secondItem="JLJ-g8-Fcf" secondAttribute="bottom" constant="63" id="tgo-xT-wul"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="aUm-WN-xcu" appends="YES" id="pHr-o4-OHC"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-eI-bc5">
                                             <rect key="frame" x="0.0" y="732" width="414" height="35"/>
@@ -190,13 +199,17 @@
                                                         <constraint firstAttribute="height" constant="2" id="GMe-sU-Y9C"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRy-wb-xb3" userLabel="ButtonView">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRy-wb-xb3">
                                                     <rect key="frame" x="203" y="13.5" width="8" height="8"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="8" id="4hC-6N-Omg"/>
                                                         <constraint firstAttribute="height" constant="8" id="b9u-F1-dTI"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="bLB-sG-xKn" appends="YES" id="OkD-kI-EfM"/>
+                                                    </connections>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -228,6 +241,9 @@
                                                     <state key="normal">
                                                         <imageReference key="image" image="play" catalog="system" symbolScale="medium" renderingMode="original"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="previousButtonAction:" destination="qqG-cn-yj2" eventType="touchUpInside" id="pom-Qc-uXh"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mi-xh-jXH" userLabel="Play Button">
                                                     <rect key="frame" x="177" y="0.0" width="60" height="60"/>
@@ -239,6 +255,9 @@
                                                         <imageReference key="image" image="play.circle" catalog="system" symbolScale="large" renderingMode="original"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="light"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="playButtonAction:" destination="qqG-cn-yj2" eventType="touchUpInside" id="HCR-5S-hQr"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5i-54-mbl">
                                                     <rect key="frame" x="253" y="17.5" width="25" height="25"/>
@@ -249,6 +268,9 @@
                                                     <state key="normal">
                                                         <imageReference key="image" image="playpause" catalog="system" symbolScale="medium" renderingMode="original"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="nextButtonAction:" destination="qqG-cn-yj2" eventType="touchUpInside" id="eg4-ML-NhP"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,16 +318,36 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="artistBackgroundImageView" destination="bUa-kk-aQp" id="gAS-9Z-Fl4"/>
+                        <outlet property="artistBackgroundView" destination="Xb6-UJ-4af" id="e3g-6s-1rL"/>
+                        <outlet property="artistImageView" destination="JLJ-g8-Fcf" id="7yC-XX-8gd"/>
                         <outlet property="artistLabel" destination="LOt-dm-VHI" id="XpH-hh-7kx"/>
                         <outlet property="backButton" destination="B9B-7z-ufi" id="K4o-sb-nXd"/>
                         <outlet property="backgroundImageView" destination="xrC-72-6au" id="IA4-60-XUh"/>
                         <outlet property="durationLabel" destination="Lsh-Zo-wLO" id="aO9-Dr-Pgh"/>
-                        <outlet property="playDurationLabel" destination="cwe-WI-yHf" id="D77-lk-azQ"/>
+                        <outlet property="durationView" destination="Qai-je-5RH" id="TbF-KB-swi"/>
+                        <outlet property="nextButton" destination="L5i-54-mbl" id="HNC-Ts-F3B"/>
+                        <outlet property="playButton" destination="6mi-xh-jXH" id="cnQ-qF-XFo"/>
+                        <outlet property="positionButton" destination="HRy-wb-xb3" id="qTh-hG-zDK"/>
+                        <outlet property="positionLabel" destination="cwe-WI-yHf" id="ATF-eK-w3Q"/>
+                        <outlet property="positionView" destination="5Ij-75-WXK" id="Gf1-BH-ulC"/>
+                        <outlet property="previousButton" destination="un7-F0-bg7" id="w8E-BO-8ry"/>
                         <outlet property="shareButton" destination="2XH-P6-dJM" id="uxb-vw-IDT"/>
                         <outlet property="titleLabel" destination="29F-Br-AOU" id="r98-oL-OZk"/>
+                        <outlet property="visualEffectView" destination="avf-bj-gbc" id="x4Q-Qx-DON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82J-Ie-rMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aUm-WN-xcu">
+                    <connections>
+                        <action selector="tapArtistBackgroundViewAction:" destination="qqG-cn-yj2" id="Auu-W3-Ca2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bLB-sG-xKn">
+                    <connections>
+                        <action selector="tapPositionButtonAction:" destination="qqG-cn-yj2" id="DiH-8o-cKn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1747.826086956522" y="97.098214285714278"/>
         </scene>

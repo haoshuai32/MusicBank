@@ -10,8 +10,17 @@ import Foundation
 import MediaPlayer
 import Kingfisher
 
+protocol MusicBankPlayerDelegate {
+    func readyToPlay(player: AVPlayer, asset: AVPlayerItem)
+    func playerFailed(player: AVPlayer, asset: AVPlayerItem?, error: Error?)
+    func player(player: AVPlayer,asset: AVPlayerItem ,position: Float,duration: Float)
+    func player(playing: Bool)
+}
+
 final
 class MusicBankPlayer{
+    
+    var delegate: MusicBankPlayerDelegate?
     
     // Possible values of the `playerState` property.
     
@@ -138,15 +147,20 @@ class MusicBankPlayer{
                 }
                 switch status {
                 case .unknown:
-                    let error = "\(self.player.error)  \(self.player.currentItem?.error)"
-//                    assert(false,error)
+                    // 资源错误
+                    assert(false,"资源错误")
+                    delegate?.playerFailed(player: self.player, asset: self.player.currentItem, error: self.player.currentItem?.error)
+                    
                     break
                 case .readyToPlay:
-
+                    guard let currentItem = self.player.currentItem else {
+                        assert(false,"资源错误")
+                        return
+                    }
+                    delegate?.readyToPlay(player: self.player, asset: currentItem)
                     self.handlePlaybackChange()
                 case .failed:
-                    let error = "\(self.player.error)  \(self.player.currentItem?.error)"
-                    assert(false,error)
+                    delegate?.playerFailed(player: self.player, asset: self.player.currentItem, error: self.player.error)
                 @unknown default:
                     break
                 
@@ -159,21 +173,27 @@ class MusicBankPlayer{
             loadedTimeRangeObserver = player.observe(\.currentItem?.loadedTimeRanges, options: .initial, changeHandler: { [unowned self] (player, value) in
 
                 guard let playerItem = self.player.currentItem else {
+                    assert(false)
                     return
                 }
 
                 let loadedTimeRanges = playerItem.loadedTimeRanges
 
                 guard let timeRange = loadedTimeRanges.first?.timeRangeValue else {
+                    assert(false)
                     return
                 }
-
+                
                 let startSeconds = CMTimeGetSeconds(timeRange.start)
 
                 let durationSeconds = CMTimeGetSeconds(timeRange.duration)
 
                 let result = startSeconds + durationSeconds
-
+                
+                self.delegate?.player(player: self.player, asset: playerItem, position: Float(startSeconds), duration: Float(durationSeconds))
+                
+//                self.delegate?.player(player: self.player, asset: playerItem, position: startSeconds, duration: durationSeconds)
+                
                 NSLog("开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
 
             })
@@ -300,6 +320,11 @@ class MusicBankPlayer{
                                                   currentLanguageOptions: currentLanguageOptions,
                                                   availableLanguageOptionGroups: languageOptionGroups)
         
+        self.delegate?.player(player: self.player,
+                              asset: currentItem,
+                              position: Float(currentItem.currentTime().seconds),
+                              duration: Float(currentItem.duration.seconds))
+        
         handleNowPlayablePlaybackChange(playing: isPlaying, metadata: metadata)
     }
     
@@ -348,7 +373,7 @@ class MusicBankPlayer{
         }
     }
     
-    private func togglePlayPause() {
+    func togglePlayPause() {
 
         switch playerState {
             
@@ -363,7 +388,7 @@ class MusicBankPlayer{
         }
     }
     
-    private func nextTrack() {
+    func nextTrack() {
         
         if case .stopped = playerState {
             return
@@ -381,7 +406,7 @@ class MusicBankPlayer{
         
     }
     
-    private func previousTrack() {
+    func previousTrack() {
         
         if case .stopped = playerState { return }
         guard let currentItem = player.currentItem else { optOut(); return }
@@ -411,7 +436,7 @@ class MusicBankPlayer{
         }
     }
     
-    private func seek(to position: TimeInterval) {
+    func seek(to position: TimeInterval) {
         seek(to: CMTime(seconds: position, preferredTimescale: 1))
     }
     
