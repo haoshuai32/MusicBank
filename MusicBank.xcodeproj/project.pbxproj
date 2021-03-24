@@ -91,6 +91,7 @@
 		2868F7E42608861800110F54 /* ToolItemSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemSectionController.swift; sourceTree = "<group>"; };
 		2869B923260B0F2B00D58AAA /* LogInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInfo.swift; sourceTree = "<group>"; };
 		2869B928260B12EF00D58AAA /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		2869B930260B589200D58AAA /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		2888C23525FC65FF00E6BB34 /* MusicBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2888C23825FC65FF00E6BB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2888C23A25FC65FF00E6BB34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 		2888C22C25FC65FF00E6BB34 = {
 			isa = PBXGroup;
 			children = (
+				2869B930260B589200D58AAA /* TODO.md */,
 				2E9299832608E96A006AB6C3 /* README.md */,
 				2888C23725FC65FF00E6BB34 /* MusicBank */,
 				2888C24E25FC660300E6BB34 /* MusicBankTests */,

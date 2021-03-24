@@ -105,20 +105,16 @@ class MusicBankPlayerViewController: MusicBankViewController {
             self.artistBackgroundImageView.tag = 100
             self.artistBackgroundImageView.layer.cornerRadius = self.artistBackgroundImageView.frame.width / 2.0
             self.artistBackgroundView.layer.cornerRadius = self.artistBackgroundView.frame.width / 2.0
-            self.artistImageView.layer.cornerRadius =  self.artistImageView.frame.width / 2.0
+            self.artistImageView.layer.cornerRadius = self.artistImageView.frame.width / 2.0
+            self.positionButton.layer.cornerRadius = self.positionButton.frame.width / 2.0
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
         
-    }
-    
     private
     func startPlayAnimation() {
-
+        artistImageView.isUserInteractionEnabled = true
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.fromValue = 0.0
         rotationAnimation.toValue = Double.pi * 2.0
         rotationAnimation.duration = 1.25
         rotationAnimation.isCumulative = true
