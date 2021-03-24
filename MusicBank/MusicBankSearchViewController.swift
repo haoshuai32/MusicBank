@@ -41,6 +41,7 @@ class MusicBankSearchViewController: MusicBankViewController,UIScrollViewDelegat
         if scrollView.contentOffset.y <= 0.0 {
             self.collectionView.isScrollEnabled = false
             NotificationCenter.default.post(name: NSNotification.Name.ScrollEnabled.Mine, object: nil)
+            
         }
     }
     

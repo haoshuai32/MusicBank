@@ -63,6 +63,7 @@
 		2E6F38AA260B94AA00DAE6D9 /* DateSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6F38A9260B94AA00DAE6D9 /* DateSectionController.swift */; };
 		2E6F38B2260B968100DAE6D9 /* VCContentSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6F38B1260B968100DAE6D9 /* VCContentSectionController.swift */; };
 		2E6F38B7260B993E00DAE6D9 /* VCSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6F38B6260B993E00DAE6D9 /* VCSectionController.swift */; };
+		2E6F38BC260BB73200DAE6D9 /* resume.md in Resources */ = {isa = PBXBuildFile; fileRef = 2E6F38BB260BB73200DAE6D9 /* resume.md */; };
 		2E92993A2608D20F006AB6C3 /* MusicBankSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9299382608D20F006AB6C3 /* MusicBankSongCell.swift */; };
 		2E92993B2608D20F006AB6C3 /* MusicBankSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9299392608D20F006AB6C3 /* MusicBankSongCell.xib */; };
 		2E9299442608D304006AB6C3 /* MusicBankAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9299422608D304006AB6C3 /* MusicBankAuthorCell.swift */; };
@@ -158,6 +159,7 @@
 		2E6F38A9260B94AA00DAE6D9 /* DateSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSectionController.swift; sourceTree = "<group>"; };
 		2E6F38B1260B968100DAE6D9 /* VCContentSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCContentSectionController.swift; sourceTree = "<group>"; };
 		2E6F38B6260B993E00DAE6D9 /* VCSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSectionController.swift; sourceTree = "<group>"; };
+		2E6F38BB260BB73200DAE6D9 /* resume.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = resume.md; sourceTree = "<group>"; };
 		2E9299382608D20F006AB6C3 /* MusicBankSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankSongCell.swift; sourceTree = "<group>"; };
 		2E9299392608D20F006AB6C3 /* MusicBankSongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBankSongCell.xib; sourceTree = "<group>"; };
 		2E9299422608D304006AB6C3 /* MusicBankAuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBankAuthorCell.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			children = (
 				2869B930260B589200D58AAA /* TODO.md */,
 				2E9299832608E96A006AB6C3 /* README.md */,
+				2E6F38BB260BB73200DAE6D9 /* resume.md */,
 				2888C23725FC65FF00E6BB34 /* MusicBank */,
 				2888C24E25FC660300E6BB34 /* MusicBankTests */,
 				2888C25925FC660300E6BB34 /* MusicBankUITests */,
@@ -534,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E6F386E260B8CD300DAE6D9 /* BannerContentCell.xib in Resources */,
+				2E6F38BC260BB73200DAE6D9 /* resume.md in Resources */,
 				2888C24525FC660300E6BB34 /* LaunchScreen.storyboard in Resources */,
 				2888C24225FC660300E6BB34 /* Assets.xcassets in Resources */,
 				2E92993B2608D20F006AB6C3 /* MusicBankSongCell.xib in Resources */,
