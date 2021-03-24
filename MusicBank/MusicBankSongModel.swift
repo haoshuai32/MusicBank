@@ -11,6 +11,10 @@ import ObjectMapper
 
 struct AssetItemModel: Mappable {
     
+    init() {
+        
+    }
+    
     init?(map: Map) {
         
     }

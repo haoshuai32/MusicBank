@@ -162,7 +162,6 @@ class MusicBankAssetPlayer {
             }
             
             self.player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { (time) in
-                debugPrint("播放进度")
                 self.handlePlaybackChange()
             }
             

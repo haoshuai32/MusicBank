@@ -50,7 +50,7 @@ class MusicBankPlayerViewController: MusicBankViewController {
     
     @IBOutlet weak var durationView: UIView!
     
-    @IBOutlet weak var positionButton: UIView!
+    @IBOutlet weak var positionButton: UIButton!
     
     
     /*----------------------------------------------*/
@@ -65,20 +65,76 @@ class MusicBankPlayerViewController: MusicBankViewController {
     
     var assets: [AssetItemModel] = []
     
+    /// 当前播放歌曲时长
+    var currentDuration: Float = 0
+    
+    private var isTouchPositionButton = false {
+        didSet {
+            if isTouchPositionButton {
+                self.durationView.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 2)
+                self.positionButton.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
+            } else {
+                self.durationView.transform = CGAffineTransform.identity
+                self.positionButton.transform = CGAffineTransform.identity
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var song = AssetItemModel()
+        
+        song.title = "富士山下"
+        song.artist = "陈奕迅"
+        song.assetURL = URL(string: "http://music.163.com/song/media/outer/url?id=65766")
+        song.artworkURL = URL(string: "https://bkimg.cdn.bcebos.com/pic/79f0f736afc37931e4c8b22be1c4b74543a9110b?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxMTY=,g_7,xp_5,yp_5/format,f_auto")
         do {
             // 直接开始播放
-            player = try MusicBankPlayer(assets: [])
-            player?.delegate = self
+            player = try MusicBankPlayer(assets: [song],delegate: self)
         } catch let error {
             assert(false,error.localizedDescription)
         }
+        startPlayAnimation()
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if self.artistBackgroundImageView.tag == 0 {
+            self.artistBackgroundImageView.tag = 100
+            self.artistBackgroundImageView.layer.cornerRadius = self.artistBackgroundImageView.frame.width / 2.0
+            self.artistBackgroundView.layer.cornerRadius = self.artistBackgroundView.frame.width / 2.0
+            self.artistImageView.layer.cornerRadius =  self.artistImageView.frame.width / 2.0
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        
+    }
+    
+    private
+    func startPlayAnimation() {
+
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.toValue = Double.pi * 2.0
+        rotationAnimation.duration = 1.25
+        rotationAnimation.isCumulative = true
+        rotationAnimation.repeatCount = Float.infinity
+        rotationAnimation.fillMode = .forwards
+        artistImageView.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        
+    }
+    
+    private
+    func stopPlayAnimation() {
+        
+    }
     
     // MARK: 设置播放进度
+    private
     func setSeek(to position: TimeInterval) {
         self.player?.seek(to: position)
     }
@@ -90,10 +146,6 @@ class MusicBankPlayerViewController: MusicBankViewController {
         // TODO: 歌词和封面切换
     }
     
-    //代理--手势识别器是否能够开始识别手势.
-//    当手势识别器识别到手势,准备从UIGestureRecognizerStatePossible状态开始转换时.调用此代理,如果返回YES,那么就继续识别,如果返回NO,那么手势识别器将会将状态置为UIGestureRecognizerStateFailed.
-
-    
     @IBAction func panPositionButtonView(_ sender: UIPanGestureRecognizer) {
         
         
@@ -104,39 +156,47 @@ class MusicBankPlayerViewController: MusicBankViewController {
         case .possible:
             break
         case .began:
-            // 放大
-//            self.durationView.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 2)
+
             break
         case .changed:
+            let multiplier = point.x / self.durationView.frame.width
+            if multiplier >= 0.0,  multiplier <= 1.0 {
+                self.positionLayoutConstraint.constant = point.x
+            }
+            
+            
             break
         case .ended:
-            self.durationView.transform = CGAffineTransform.identity
+            let multiplier = point.x / self.durationView.frame.width
+            if multiplier >= 0.0,  multiplier <= 1.0 {
+                
+                let position = currentDuration * Float(multiplier)
+                debugPrint("计算播放进度",position,currentDuration,multiplier)
+                setSeek(to: TimeInterval(position))
+            }
+            isTouchPositionButton = false
+
             break
         case .cancelled:
-            self.durationView.transform = CGAffineTransform.identity
+            isTouchPositionButton = false
             break
         case .failed:
-            self.durationView.transform = CGAffineTransform.identity
+            isTouchPositionButton = false
             break
         @unknown default:
-            self.durationView.transform = CGAffineTransform.identity
+            isTouchPositionButton = false
             break
         }
         
-//        CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
-//        //相对有手势父视图的坐标点(注意如果父视图是scrollView,locationPoint.x可能会大于视图的width)
-//        CGPoint locationPoint = [gestureRecognizer locationInView:gestureRecognizer.view];
-//
     }
     
-    @IBAction func tapPositionButtonAction(_ sender: Any) {
-        // TODO: 拖动进度条
-        // 开始选中的时候 进度条应该有一个放大效果
-        // 并且变亮
-        debugPrint("点击这个手势")
-        self.durationView.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 2)
+    @IBAction func positionButtonDownAction(_ sender: Any) {
+        isTouchPositionButton = true
     }
     
+    @IBAction func positionButtonUpAction(_ sender: Any) {
+        isTouchPositionButton = false
+    }
     
     // MARK: 按钮响应
     /*----------------------------------------------*/
@@ -166,8 +226,14 @@ class MusicBankPlayerViewController: MusicBankViewController {
 
 extension MusicBankPlayerViewController: MusicBankPlayerDelegate {
     
-    func readyToPlay(player: AVPlayer, asset: AVPlayerItem) {
-        debugPrint("准备好开始播放")
+    func readyToPlay(player: AVPlayer, asset: AVPlayerItem, duration: Float, metadata: MusicBankPlayableStaticMetadata) {
+        self.titleLabel.text = metadata.title
+        self.artistLabel.text = metadata.artist
+        artistImageView.kf.setImage(with: metadata.artworkURL, placeholder: nil, options: nil, completionHandler: nil)
+        
+        self.positionLayoutConstraint.constant = 0
+        self.positionLabel.text = "00:00"
+        self.durationLabel.text = duration.durationTime
     }
     
     func playerFailed(player: AVPlayer, asset: AVPlayerItem?, error: Error?) {
@@ -175,11 +241,47 @@ extension MusicBankPlayerViewController: MusicBankPlayerDelegate {
     }
     
     func player(player: AVPlayer, asset: AVPlayerItem, position: Float, duration: Float) {
-        debugPrint("播放进度")
+        let multiplier = position / duration
+        
+        let width = multiplier * Float(self.durationView.frame.width)
+        
+        if multiplier >= 0.0,  multiplier <= 1.0 {
+            if isTouchPositionButton == false {
+                UIView.animate(withDuration: 0.02) {
+                    self.positionLayoutConstraint.constant = CGFloat(width)
+                }
+            }
+        }
+        
+        self.positionLabel.text = position.durationTime
+        
+        if self.currentDuration != duration {
+            self.durationLabel.text = duration.durationTime
+            self.currentDuration = duration
+        }
+        
     }
     
     func player(playing: Bool) {
         
     }
     
+}
+
+extension Float {
+    var durationTime: String {
+        
+        if self.isNaN {
+            return "00:00"
+        }
+        if self.isZero {
+            return "00:00"
+        }
+        
+        let min = Int(self) / 60
+        let sec = Int(self) % 60
+        let minStr = String.init(format: "%02d", min)
+        let secStr = String.init(format: "%02d", sec)
+        return "\(minStr):\(secStr)"
+    }
 }

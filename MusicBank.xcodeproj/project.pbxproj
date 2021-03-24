@@ -230,12 +230,12 @@
 		2868F7F82608AA9D00110F54 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				2E32FEDF260A2C37009C1CD0 /* MusicBankAssetPlayer.swift */,
 				2E32FEC3260A2934009C1CD0 /* MusicBankPlayableCommand.swift */,
 				2E32FEC8260A2986009C1CD0 /* MusicBankPlayableError.swift */,
 				2E32FECD260A29C4009C1CD0 /* MusicBankPlayableMetadata.swift */,
 				2E32FEDA260A2BB6009C1CD0 /* MusicBankPlayable.swift */,
 				2E32FED2260A29FF009C1CD0 /* MusicBankPlayer.swift */,
-				2E32FEDF260A2C37009C1CD0 /* MusicBankAssetPlayer.swift */,
 				2E32FEE7260A2D5E009C1CD0 /* MusicBankSongModel.swift */,
 			);
 			name = Player;

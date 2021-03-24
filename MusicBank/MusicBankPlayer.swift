@@ -11,7 +11,7 @@ import MediaPlayer
 import Kingfisher
 
 protocol MusicBankPlayerDelegate {
-    func readyToPlay(player: AVPlayer, asset: AVPlayerItem)
+    func readyToPlay(player: AVPlayer, asset: AVPlayerItem,duration: Float,metadata:MusicBankPlayableStaticMetadata)
     func playerFailed(player: AVPlayer, asset: AVPlayerItem?, error: Error?)
     func player(player: AVPlayer,asset: AVPlayerItem ,position: Float,duration: Float)
     func player(playing: Bool)
@@ -20,7 +20,7 @@ protocol MusicBankPlayerDelegate {
 final
 class MusicBankPlayer{
     
-    var delegate: MusicBankPlayerDelegate?
+    let delegate: MusicBankPlayerDelegate
     
     // Possible values of the `playerState` property.
     
@@ -77,8 +77,9 @@ class MusicBankPlayer{
     
     // Initialize a new `AssetPlayer` object.
     
-    init(assets: [AssetItemModel]) throws {
+    init(assets: [AssetItemModel],delegate: MusicBankPlayerDelegate) throws {
         
+        self.delegate = delegate
         // Create a player, and configure it for external playback, if the
         // configuration requires.
         
@@ -124,7 +125,7 @@ class MusicBankPlayer{
 //        replaceCurrentItemWithPlayerItem
         self.player.replaceCurrentItem(with: item)
         
-        debugPrint("播放时长",item.asset.duration)
+        debugPrint("播放时长",item.asset.duration.seconds)
         // Observe changes to the current item and playback rate.
         
         if player.currentItem != nil {
@@ -147,20 +148,15 @@ class MusicBankPlayer{
                 }
                 switch status {
                 case .unknown:
-                    // 资源错误
-                    assert(false,"资源错误")
-                    delegate?.playerFailed(player: self.player, asset: self.player.currentItem, error: self.player.currentItem?.error)
-                    
                     break
                 case .readyToPlay:
                     guard let currentItem = self.player.currentItem else {
                         assert(false,"资源错误")
                         return
                     }
-                    delegate?.readyToPlay(player: self.player, asset: currentItem)
                     self.handlePlaybackChange()
                 case .failed:
-                    delegate?.playerFailed(player: self.player, asset: self.player.currentItem, error: self.player.error)
+                    delegate.playerFailed(player: self.player, asset: self.player.currentItem, error: self.player.error)
                 @unknown default:
                     break
                 
@@ -180,7 +176,6 @@ class MusicBankPlayer{
                 let loadedTimeRanges = playerItem.loadedTimeRanges
 
                 guard let timeRange = loadedTimeRanges.first?.timeRangeValue else {
-                    assert(false)
                     return
                 }
                 
@@ -188,22 +183,10 @@ class MusicBankPlayer{
 
                 let durationSeconds = CMTimeGetSeconds(timeRange.duration)
 
-                let result = startSeconds + durationSeconds
-                
-                self.delegate?.player(player: self.player, asset: playerItem, position: Float(startSeconds), duration: Float(durationSeconds))
-                
-//                self.delegate?.player(player: self.player, asset: playerItem, position: startSeconds, duration: durationSeconds)
-                
-                NSLog("开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
-
             })
             
             
             self.player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { (time) in
-                let current = CMTimeGetSeconds(time);
-                let total = CMTimeGetSeconds(self.player.currentItem!.duration);
-                debugPrint("播放时长", current,CMTimeGetSeconds(self.player.currentItem!.currentTime()),total)
-                // 进度条一直无法显示
                 self.handlePlaybackChange()
             }
 
@@ -320,7 +303,7 @@ class MusicBankPlayer{
                                                   currentLanguageOptions: currentLanguageOptions,
                                                   availableLanguageOptionGroups: languageOptionGroups)
         
-        self.delegate?.player(player: self.player,
+        self.delegate.player(player: self.player,
                               asset: currentItem,
                               position: Float(currentItem.currentTime().seconds),
                               duration: Float(currentItem.duration.seconds))
@@ -846,6 +829,14 @@ class MusicBankPlayer{
         nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = metadata.albumTitle
         
         nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+        
+        
+        guard let currentItem = self.player.currentItem else {
+            assert(false)
+            return
+        }
+        
+        delegate.readyToPlay(player: self.player, asset: currentItem, duration: Float(currentItem.duration.seconds),metadata: metadata)
     }
     
     // Set playback info. Implementations of `handleNowPlayablePlaybackChange(playing:rate:position:duration:)`
@@ -865,6 +856,13 @@ class MusicBankPlayer{
         nowPlayingInfo[MPNowPlayingInfoPropertyAvailableLanguageOptions] = metadata.availableLanguageOptionGroups
         
         nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+        
+        guard let currentItem = self.player.currentItem else {
+            assert(false)
+            return
+        }
+        
+        self.delegate.player(player: self.player, asset: currentItem, position: metadata.position, duration: metadata.duration)
     }
     
 }
