@@ -223,6 +223,7 @@ class MusicBankPlayerViewController: MusicBankViewController {
 extension MusicBankPlayerViewController: MusicBankPlayerDelegate {
     
     func readyToPlay(player: AVPlayer, asset: AVPlayerItem, duration: Float, metadata: MusicBankPlayableStaticMetadata) {
+        
         self.titleLabel.text = metadata.title
         self.artistLabel.text = metadata.artist
         artistImageView.kf.setImage(with: metadata.artworkURL, placeholder: nil, options: nil, completionHandler: nil)
@@ -237,6 +238,7 @@ extension MusicBankPlayerViewController: MusicBankPlayerDelegate {
     }
     
     func player(player: AVPlayer, asset: AVPlayerItem, position: Float, duration: Float) {
+        return
         let multiplier = position / duration
         
         let width = multiplier * Float(self.durationView.frame.width)

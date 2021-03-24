@@ -10,7 +10,6 @@ import UIKit
 import IGListKit
 
 
-
 class MusicBankFindViewController: MusicBankViewController {
 
     @IBOutlet weak var collectionView: ListCollectionView!

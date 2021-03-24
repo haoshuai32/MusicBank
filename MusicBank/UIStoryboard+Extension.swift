@@ -15,6 +15,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
     }()
     
+    static var Find: UIStoryboard = {
+        return UIStoryboard(name: "Find", bundle: nil)
+    }()
+    
     
     func instantiate<T: UIViewController>(_ viewController: T.Type) -> T  {
         let className = NSStringFromClass(viewController.classForCoder())

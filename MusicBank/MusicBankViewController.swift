@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
+import RxSwift
 class MusicBankViewController: UIViewController {
 
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
