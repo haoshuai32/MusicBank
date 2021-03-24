@@ -16,9 +16,10 @@
 		2868F7DC2608851900110F54 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F7DA2608851900110F54 /* ToolItemCell.swift */; };
 		2868F7DD2608851900110F54 /* ToolItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2868F7DB2608851900110F54 /* ToolItemCell.xib */; };
 		2868F7E52608861800110F54 /* ToolItemSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868F7E42608861800110F54 /* ToolItemSectionController.swift */; };
+		2869B924260B0F2B00D58AAA /* LogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869B923260B0F2B00D58AAA /* LogInfo.swift */; };
+		2869B929260B12EF00D58AAA /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869B928260B12EF00D58AAA /* UIStoryboard+Extension.swift */; };
 		2888C23925FC65FF00E6BB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C23825FC65FF00E6BB34 /* AppDelegate.swift */; };
 		2888C23B25FC65FF00E6BB34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C23A25FC65FF00E6BB34 /* SceneDelegate.swift */; };
-		2888C23D25FC65FF00E6BB34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2888C23C25FC65FF00E6BB34 /* ViewController.swift */; };
 		2888C24025FC65FF00E6BB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2888C23E25FC65FF00E6BB34 /* Main.storyboard */; };
 		2888C24225FC660300E6BB34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2888C24125FC660300E6BB34 /* Assets.xcassets */; };
 		2888C24525FC660300E6BB34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2888C24325FC660300E6BB34 /* LaunchScreen.storyboard */; };
@@ -88,10 +89,11 @@
 		2868F7DA2608851900110F54 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		2868F7DB2608851900110F54 /* ToolItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolItemCell.xib; sourceTree = "<group>"; };
 		2868F7E42608861800110F54 /* ToolItemSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemSectionController.swift; sourceTree = "<group>"; };
+		2869B923260B0F2B00D58AAA /* LogInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInfo.swift; sourceTree = "<group>"; };
+		2869B928260B12EF00D58AAA /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		2888C23525FC65FF00E6BB34 /* MusicBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2888C23825FC65FF00E6BB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2888C23A25FC65FF00E6BB34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2888C23C25FC65FF00E6BB34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2888C23F25FC65FF00E6BB34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2888C24125FC660300E6BB34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2888C24425FC660300E6BB34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -239,6 +241,17 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
+		2869B919260B0E1A00D58AAA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2888C23E25FC65FF00E6BB34 /* Main.storyboard */,
+				2888C24125FC660300E6BB34 /* Assets.xcassets */,
+				2888C24325FC660300E6BB34 /* LaunchScreen.storyboard */,
+				2869B923260B0F2B00D58AAA /* LogInfo.swift */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		2888C22C25FC65FF00E6BB34 = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +278,7 @@
 		2888C23725FC65FF00E6BB34 /* MusicBank */ = {
 			isa = PBXGroup;
 			children = (
+				2869B919260B0E1A00D58AAA /* Resource */,
 				2868F7F82608AA9D00110F54 /* Player */,
 				2868F71726085AFD00110F54 /* API */,
 				2888C2B525FC8C8400E6BB34 /* Extensioin */,
@@ -273,10 +287,6 @@
 				2888C29025FC677700E6BB34 /* Find(发现) */,
 				2888C23825FC65FF00E6BB34 /* AppDelegate.swift */,
 				2888C23A25FC65FF00E6BB34 /* SceneDelegate.swift */,
-				2888C23C25FC65FF00E6BB34 /* ViewController.swift */,
-				2888C23E25FC65FF00E6BB34 /* Main.storyboard */,
-				2888C24125FC660300E6BB34 /* Assets.xcassets */,
-				2888C24325FC660300E6BB34 /* LaunchScreen.storyboard */,
 				2888C24625FC660300E6BB34 /* Info.plist */,
 			);
 			path = MusicBank;
@@ -343,6 +353,7 @@
 				2888C2CD25FC902300E6BB34 /* String+Extension.swift */,
 				2888C2D225FC906400E6BB34 /* Permission.swift */,
 				2888C2D725FC907800E6BB34 /* Bundle+Extension.swift */,
+				2869B928260B12EF00D58AAA /* UIStoryboard+Extension.swift */,
 			);
 			name = Extensioin;
 			sourceTree = "<group>";
@@ -615,6 +626,7 @@
 				2E32FECE260A29C4009C1CD0 /* MusicBankPlayableMetadata.swift in Sources */,
 				2888C26C25FC664A00E6BB34 /* MusicBankViewController.swift in Sources */,
 				2888C27925FC669A00E6BB34 /* MusicBankNavigationController.swift in Sources */,
+				2869B924260B0F2B00D58AAA /* LogInfo.swift in Sources */,
 				2E9299442608D304006AB6C3 /* MusicBankAuthorCell.swift in Sources */,
 				2E32FEC4260A2934009C1CD0 /* MusicBankPlayableCommand.swift in Sources */,
 				2888C2C925FC901200E6BB34 /* Data+Extension.swift in Sources */,
@@ -624,7 +636,6 @@
 				2E92993A2608D20F006AB6C3 /* MusicBankSongCell.swift in Sources */,
 				2E92995B2608E0E3006AB6C3 /* MusicBankAlbumImageCell.swift in Sources */,
 				2888C2B725FC8CAB00E6BB34 /* UIImage+Extension.swift in Sources */,
-				2888C23D25FC65FF00E6BB34 /* ViewController.swift in Sources */,
 				2E32FEE8260A2D5E009C1CD0 /* MusicBankSongModel.swift in Sources */,
 				2888C2D825FC907800E6BB34 /* Bundle+Extension.swift in Sources */,
 				2888C28425FC675C00E6BB34 /* MusicBankFindViewController.swift in Sources */,
@@ -633,6 +644,7 @@
 				2E32FEC9260A2986009C1CD0 /* MusicBankPlayableError.swift in Sources */,
 				2888C2B125FC8C6000E6BB34 /* MusicBankPlayerViewController.swift in Sources */,
 				2868F7DC2608851900110F54 /* ToolItemCell.swift in Sources */,
+				2869B929260B12EF00D58AAA /* UIStoryboard+Extension.swift in Sources */,
 				2888C27425FC666F00E6BB34 /* MusicBankTabBarController.swift in Sources */,
 				2E92994B2608D32D006AB6C3 /* MusicBankAlbumCell.swift in Sources */,
 				2868F7E52608861800110F54 /* ToolItemSectionController.swift in Sources */,

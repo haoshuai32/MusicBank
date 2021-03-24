@@ -74,6 +74,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="17" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="mic.fill" catalog="system"/>
+                    <connections>
+                        <action selector="searchButtonAction:" destination="AbW-N5-XH1" eventType="touchUpInside" id="JYE-Hd-kGN"/>
+                    </connections>
                 </button>
             </objects>
             <point key="canvasLocation" x="424.63768115942031" y="55.580357142857139"/>

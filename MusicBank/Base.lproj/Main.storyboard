@@ -63,7 +63,7 @@
         <!--Music Bank Player View Controller-->
         <scene sceneID="SJ5-wH-ehM">
             <objects>
-                <viewController id="qqG-cn-yj2" customClass="MusicBankPlayerViewController" customModule="MusicBank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MusicBankPlayerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qqG-cn-yj2" customClass="MusicBankPlayerViewController" customModule="MusicBank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8YI-NW-Ci5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,7 +208,8 @@
                                                         <constraint firstAttribute="height" constant="8" id="b9u-F1-dTI"/>
                                                     </constraints>
                                                     <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="bLB-sG-xKn" appends="YES" id="OkD-kI-EfM"/>
+                                                        <outletCollection property="gestureRecognizers" destination="P5R-Sp-nbg" appends="YES" id="qt6-2y-Izj"/>
+                                                        <outletCollection property="gestureRecognizers" destination="Wsg-mz-vo5" appends="YES" id="kOn-as-sjH"/>
                                                     </connections>
                                                 </view>
                                             </subviews>
@@ -330,6 +331,7 @@
                         <outlet property="playButton" destination="6mi-xh-jXH" id="cnQ-qF-XFo"/>
                         <outlet property="positionButton" destination="HRy-wb-xb3" id="qTh-hG-zDK"/>
                         <outlet property="positionLabel" destination="cwe-WI-yHf" id="ATF-eK-w3Q"/>
+                        <outlet property="positionLayoutConstraint" destination="2lp-iX-JE4" id="qe4-dc-P7i"/>
                         <outlet property="positionView" destination="5Ij-75-WXK" id="Gf1-BH-ulC"/>
                         <outlet property="previousButton" destination="un7-F0-bg7" id="w8E-BO-8ry"/>
                         <outlet property="shareButton" destination="2XH-P6-dJM" id="uxb-vw-IDT"/>
@@ -343,22 +345,27 @@
                         <action selector="tapArtistBackgroundViewAction:" destination="qqG-cn-yj2" id="Auu-W3-Ca2"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="bLB-sG-xKn">
+                <tapGestureRecognizer id="Wsg-mz-vo5">
                     <connections>
-                        <action selector="tapPositionButtonAction:" destination="qqG-cn-yj2" id="DiH-8o-cKn"/>
+                        <action selector="tapPositionButtonAction:" destination="qqG-cn-yj2" id="xow-p8-u9L"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="P5R-Sp-nbg">
+                    <connections>
+                        <action selector="panPositionButtonView:" destination="qqG-cn-yj2" id="Jib-WU-sgX"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1747.826086956522" y="97.098214285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="2" width="325" height="487.5"/>
-        <image name="folder.fill.badge.person.crop" catalog="system" width="32" height="32"/>
+        <image name="folder.fill.badge.person.crop" catalog="system" width="128" height="91"/>
         <image name="play" catalog="system" width="120" height="128"/>
         <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="playpause" catalog="system" width="128" height="80"/>
-        <image name="square.and.arrow.up" catalog="system" width="32" height="32"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -46,6 +46,8 @@ class MusicBankPlayerViewController: MusicBankViewController {
     
     @IBOutlet weak var positionView: UIView!
     
+    @IBOutlet weak var positionLayoutConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var durationView: UIView!
     
     @IBOutlet weak var positionButton: UIView!
@@ -88,12 +90,51 @@ class MusicBankPlayerViewController: MusicBankViewController {
         // TODO: 歌词和封面切换
     }
     
+    //代理--手势识别器是否能够开始识别手势.
+//    当手势识别器识别到手势,准备从UIGestureRecognizerStatePossible状态开始转换时.调用此代理,如果返回YES,那么就继续识别,如果返回NO,那么手势识别器将会将状态置为UIGestureRecognizerStateFailed.
+
+    
+    @IBAction func panPositionButtonView(_ sender: UIPanGestureRecognizer) {
+        
+        
+        let point = sender.location(in: self.durationView)
+        debugPrint("活动的位置点",sender.state.rawValue, point,self.durationView.frame.width)
+        switch sender.state {
+        
+        case .possible:
+            break
+        case .began:
+            // 放大
+//            self.durationView.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 2)
+            break
+        case .changed:
+            break
+        case .ended:
+            self.durationView.transform = CGAffineTransform.identity
+            break
+        case .cancelled:
+            self.durationView.transform = CGAffineTransform.identity
+            break
+        case .failed:
+            self.durationView.transform = CGAffineTransform.identity
+            break
+        @unknown default:
+            self.durationView.transform = CGAffineTransform.identity
+            break
+        }
+        
+//        CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
+//        //相对有手势父视图的坐标点(注意如果父视图是scrollView,locationPoint.x可能会大于视图的width)
+//        CGPoint locationPoint = [gestureRecognizer locationInView:gestureRecognizer.view];
+//
+    }
     
     @IBAction func tapPositionButtonAction(_ sender: Any) {
         // TODO: 拖动进度条
         // 开始选中的时候 进度条应该有一个放大效果
         // 并且变亮
-        
+        debugPrint("点击这个手势")
+        self.durationView.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 2)
     }
     
     
@@ -101,6 +142,7 @@ class MusicBankPlayerViewController: MusicBankViewController {
     /*----------------------------------------------*/
     @IBAction func backButtonAction(_ sender: Any) {
         // TODO: 设置转场效果
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func shareButtonAction(_ sender: Any) {

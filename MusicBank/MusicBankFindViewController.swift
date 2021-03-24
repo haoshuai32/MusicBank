@@ -38,6 +38,11 @@ class MusicBankFindViewController: MusicBankViewController {
         
     }
     
+    @IBAction func searchButtonAction(_ sender: Any) {
+        let vc = UIStoryboard.Main.instantiate(MusicBankPlayerViewController.self)
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
     
 }
 
