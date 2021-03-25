@@ -1,5 +1,5 @@
 //
-//  MusicBankAuthorCell.swift
+//  MusicBankAlbumNameCell.swift
 //  MusicBank
 //
 //  Created by haoshuai on 2021/3/22.
@@ -9,18 +9,25 @@
 import UIKit
 import IGListKit
 
-class MusicBankAuthorCell: UICollectionViewCell {
-    
+class MusicBankAlbumNameCell: UICollectionViewCell {
+
     @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var detailsLabel: UILabel!
+     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+
 }
 
-class MusicBankAuthorSectionController: ListSectionController {
+class MusicBankAlbumNameSectionController: ListSectionController {
+    
     var dataSource: Int?
+    
     override func numberOfItems() -> Int {
         return 1
     }
@@ -31,7 +38,7 @@ class MusicBankAuthorSectionController: ListSectionController {
     }
 
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        let cell = collectionContext?.dequeueReusableCell(withNibName: "MusicBankAuthorCell", bundle: nil, for: self, at: index) as! MusicBankAuthorCell
+        let cell = collectionContext?.dequeueReusableCell(withNibName: "MusicBankAlbumNameCell", bundle: nil, for: self, at: index) as! MusicBankAlbumNameCell
         cell.titleLabel.text = "\(dataSource ?? 0)"
         return cell
     }
@@ -42,4 +49,5 @@ class MusicBankAuthorSectionController: ListSectionController {
         }
         self.dataSource = data.intValue
     }
+    
 }

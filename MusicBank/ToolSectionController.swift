@@ -12,9 +12,7 @@ import IGListKit
 class ToolItemModel: ListDiffable {
     
     var id: Int = 0
-    
     var name: String = ""
-    
     
     func diffIdentifier() -> NSObjectProtocol {
         return id as NSObjectProtocol
@@ -33,6 +31,9 @@ class ToolSectionController: ListSectionController {
     
     private var number:Int?
     
+    private var bottomLineView: UIView?
+
+    
     private
     lazy var adapter: ListAdapter = {
         let adapter = ListAdapter(updater: ListAdapterUpdater(),
@@ -45,44 +46,50 @@ class ToolSectionController: ListSectionController {
         return 1
     }
 
+    
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 88)
+        return CGSize(width: collectionContext!.containerSize.width, height: 45)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         guard let cell = collectionContext?.dequeueReusableCell(withNibName: "ToolCell", bundle: nil, for: self, at: index) as? ToolCell else {
             fatalError()
         }
+        
         adapter.collectionView = cell.colleciontView
+        bottomLineView = cell.bottomLineView
         return cell
     }
     
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        if number == 1 {
-            return [0,2,3,4,5,6,7,8,9].map{NSNumber.init(value: $0)}
-        }
-        return [10].map{NSNumber.init(value: $0)}
+        return (0...20).map{NSNumber.init(value: $0)}
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return ToolItemSectionController()
+        let sc = ToolItemSectionController()
+        sc.de = self
+        return sc
     }
     
     override func didUpdate(to object: Any) {
-        debugPrint("数据刷新",object)
         number = object as? Int
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         nil
     }
-    
+    var selectIndex = 0
+    func toolItemDidSelectItem(at index: Int) {
+        selectIndex = index
+        let x = index * 61
+        UIView.animate(withDuration: 0.25) {
+            self.bottomLineView?.frame = CGRect(x: x, y: 0, width: 61, height: 5)
+        }
+    }
     
 }
 
-extension ToolSectionController: ListAdapterDataSource {
-    
-    
-    
+extension ToolSectionController: ListAdapterDataSource,ToolItemSectionControllerDe {
+
 }

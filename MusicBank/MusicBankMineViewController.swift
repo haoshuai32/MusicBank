@@ -9,20 +9,6 @@
 import UIKit
 import IGListKit
 
-/*
- https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=baidu&wd=ios%E4%B8%A4%E4%B8%AAtableview%E6%BB%9A%E5%8A%A8%E5%86%B2%E7%AA%81&fenlei=256&rsv_pq=985bad1b0002d271&rsv_t=9aafmM8yKik2%2BJc1pBO3fHHdrFRJ6H85jHSq7HVNWpdYRhXrg17DtSw5Q2g&rqlang=cn&rsv_enter=1&rsv_dl=ts_1&rsv_sug3=22&rsv_sug1=16&rsv_sug7=100&rsv_sug2=1&rsv_btype=i&prefixsug=iOS%2520%25E4%25B8%25A4%25E4%25B8%25AAtableview%2520&rsp=1&inputT=10331&rsv_sug4=10332
- 
- https://www.jb51.net/article/172350.htm
- 
- https://github.com/qingfengiOS/QFMultipleScrollView/blob/master/QFMultipleScrollView/ViewController.swift
- 
- https://blog.csdn.net/lining1041204250/article/details/80363392
- 
- https://www.jianshu.com/p/8bf6c2953da3
- 
- https://www.jianshu.com/p/d60ce07ef311
- */
-
 class MultiResponseListCollectionView: ListCollectionView,UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -64,27 +50,6 @@ class MusicBankMineViewController: MusicBankViewController {
     }
     
     
-    
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//     return true
-//     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let point = touches.first?.location(in: self.view)
-        debugPrint("滑动的位置", point)
-        
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
 }
 
 

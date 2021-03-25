@@ -34,7 +34,7 @@
             <connections>
                 <outlet property="nameLabel" destination="muF-sz-iTO" id="viC-D8-K1x"/>
             </connections>
-            <point key="canvasLocation" x="-114.49275362318842" y="86.71875"/>
+            <point key="canvasLocation" x="-352.17391304347831" y="30.46875"/>
         </collectionViewCell>
     </objects>
 </document>

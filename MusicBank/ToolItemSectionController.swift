@@ -9,21 +9,26 @@
 import Foundation
 import IGListKit
 
+//class ToolItemSectionController: <#super class#> {
+//    <#code#>
+//}
+
+protocol ToolItemSectionControllerDe {
+    func toolItemDidSelectItem(at index: Int)
+}
+
 class ToolItemSectionController: ListSectionController {
     
     private var number: Int?
     
+    var de: ToolItemSectionControllerDe?
     
     override func numberOfItems() -> Int {
-        if number == 1 {
-            return 1
-        }
         return 1
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        let height = collectionContext?.containerSize.height ?? 0
-        return CGSize(width: height, height: height)
+        return CGSize(width: 61, height: 45)
     }
 
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -35,6 +40,19 @@ class ToolItemSectionController: ListSectionController {
 
     override func didUpdate(to object: Any) {
         number = object as? Int
-        debugPrint("我的数据",number)
+    }
+    
+    
+    override func didSelectItem(at index: Int) {
+        debugPrint("选中",index)
+        de?.toolItemDidSelectItem(at: number!)
+//        if index == selectIndex {
+//            return
+//        }
+//
+        
+
+        
+        
     }
 }

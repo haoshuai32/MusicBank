@@ -8,7 +8,7 @@
 
 import UIKit
 import IGListKit
-
+import MJRefresh
 
 class MusicBankFindViewController: MusicBankViewController {
 
@@ -27,6 +27,7 @@ class MusicBankFindViewController: MusicBankViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.titleView = searchBar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: microphoneButton)
         
@@ -34,7 +35,7 @@ class MusicBankFindViewController: MusicBankViewController {
         adapter.collectionView = collectionView
         adapter.dataSource = self
         
-        
+//        collectionView.mj_header = MJRefreshNormalHeader()
     }
     
     @IBAction func searchButtonAction(_ sender: Any) {
@@ -49,17 +50,14 @@ class MusicBankFindViewController: MusicBankViewController {
 extension MusicBankFindViewController:ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [1,2].map{NSNumber.init(value: $0)}
+        return [1].map{NSNumber.init(value: $0)}
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         guard let data = object as? Int else {
             fatalError()
         }
-        if data == 1 {
-            return ToolSectionController()
-        }
-        return ToolItemSectionController()
+        return ToolSectionController()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
