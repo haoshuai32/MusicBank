@@ -18,10 +18,10 @@ class MusicBankSearchViewController: MusicBankViewController,UIScrollViewDelegat
     lazy var adapter: ListAdapter = {
          return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
-    
+    var childCanScroll = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.isScrollEnabled = false
+        
         
         collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
         adapter.collectionView = collectionView
@@ -30,18 +30,27 @@ class MusicBankSearchViewController: MusicBankViewController,UIScrollViewDelegat
         
         NotificationCenter.default.rx
             .notification(Notification.Name.ScrollEnabled.Find)
-            .subscribe(onNext: { (_) in
-                self.collectionView.isScrollEnabled = true
+            .subscribe(onNext: { (noti) in
+                guard let isScrollEnabled = noti.object as? Bool else {
+                    return
+                }
+                debugPrint("设置子视图滑动状态", isScrollEnabled)
+                self.childCanScroll = isScrollEnabled
             })
             .disposed(by: disposeBag)
         
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y <= 0.0 {
-            self.collectionView.isScrollEnabled = false
-            NotificationCenter.default.post(name: NSNotification.Name.ScrollEnabled.Mine, object: nil)
-            
+        debugPrint("子视图滑动", scrollView.contentOffset.y, childCanScroll)
+        if !childCanScroll {
+            scrollView.contentOffset.y = 0
+        } else {
+            if scrollView.contentOffset.y <= 0 {
+                childCanScroll = false
+                debugPrint("发送父试图滑动状态")
+                NotificationCenter.default.post(name: NSNotification.Name.ScrollEnabled.Mine, object: true)
+            }
         }
     }
     

@@ -12,6 +12,8 @@ class VCViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+//        let v = UICollectionView()
+        
         // Initialization code
     }
 

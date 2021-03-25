@@ -51,14 +51,14 @@ class VCContentSectionController: ListSectionController {
     }
     
     let vc0 = VCModel(id: 0, vc: UIStoryboard.Find.instantiate(MusicBankSearchViewController.self))
-    let vc1 = VCModel(id: 1, vc: UIStoryboard.Main.instantiate(MusicBankPlayerViewController.self))
+    let vc1 = VCModel(id: 1, vc: UIStoryboard.Find.instantiate(MusicBankSearchViewController.self))
     override func didUpdate(to object: Any) {
 //        guard let data = object as? VCListModel else {
 //            fatalError()
 //        }
         var list = [VCModel]()
         
-
+        
         list = [vc0,vc1]
         for item in list {
             self.viewController?.addChild(item.vc)

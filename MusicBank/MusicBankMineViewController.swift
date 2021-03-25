@@ -31,8 +31,10 @@ class MultiResponseListCollectionView: ListCollectionView,UIGestureRecognizerDel
 
 class MusicBankMineViewController: MusicBankViewController {
 
-    @IBOutlet weak var collectionView: ListCollectionView!
+    @IBOutlet weak var collectionView: MultiResponseListCollectionView!
     
+    let maxOffset: CGFloat = 130 + 41
+    var superCanScroll = true
     private
     lazy var adapter: ListAdapter = {
          return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
@@ -47,14 +49,18 @@ class MusicBankMineViewController: MusicBankViewController {
         adapter.dataSource = self
         adapter.scrollViewDelegate = self
         
-        self.collectionView.isScrollEnabled = false
-//
-//        NotificationCenter.default.rx
-//            .notification(Notification.Name.ScrollEnabled.Mine)
-//            .subscribe(onNext: { (_) in
-//                self.collectionView.isScrollEnabled = true
-//            })
-//            .disposed(by: disposeBag)
+        
+
+        NotificationCenter.default.rx
+            .notification(Notification.Name.ScrollEnabled.Mine)
+            .subscribe(onNext: { (objc) in
+                guard let isScrollEnabled = objc.object as? Bool else {
+                    fatalError()
+                }
+                debugPrint("注释话动画状态", isScrollEnabled)
+                self.superCanScroll = isScrollEnabled
+            })
+            .disposed(by: disposeBag)
     }
     
     
@@ -112,8 +118,17 @@ extension MusicBankMineViewController:ListAdapterDataSource,UIScrollViewDelegate
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        debugPrint("主视图滑动的距离",scrollView.contentOffset)
-        
+        debugPrint("主图滑动", scrollView.contentOffset.y, superCanScroll)
+        if !superCanScroll {
+            scrollView.contentOffset.y = maxOffset
+            NotificationCenter.default.post(name: NSNotification.Name.ScrollEnabled.Find, object: true)
+        } else {
+            if scrollView.contentOffset.y >= maxOffset {
+                scrollView.contentOffset.y = maxOffset
+                superCanScroll = false
+                NotificationCenter.default.post(name: NSNotification.Name.ScrollEnabled.Find, object: true)
+            }
+        }
 
     }
     
@@ -170,7 +185,7 @@ class VCListModel: ListDiffable {
     let list: [VCModel]
     init() {
         let vc0 = VCModel(id: 0, vc: MusicBankSearchViewController())
-        let vc1 = VCModel(id: 1, vc: MusicBankPlayerViewController())
+        let vc1 = VCModel(id: 1, vc: MusicBankSearchViewController())
         self.list = [vc0,vc1]
     }
     
