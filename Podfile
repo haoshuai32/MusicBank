@@ -10,6 +10,7 @@ target 'MusicBank' do
   pod 'Moya/RxSwift'
 
   pod 'RxDataSources'
+  
   pod 'Reusable'
   
   pod 'ObjectMapper'
@@ -22,6 +23,7 @@ target 'MusicBank' do
   
   pod 'IGListKit'
    
+  pod 'MJRefresh'
 #  pod 'IGListSwiftKit'
   
   target 'MusicBankTests' do

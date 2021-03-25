@@ -5,6 +5,7 @@ PODS:
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
   - Kingfisher (6.2.1)
+  - MJRefresh (3.5.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - IGListDiffKit
   - IGListKit
   - Kingfisher
+  - MJRefresh
   - Moya/RxSwift
   - ObjectMapper
   - ReactorKit
@@ -48,6 +50,7 @@ SPEC REPOS:
     - IGListDiffKit
     - IGListKit
     - Kingfisher
+    - MJRefresh
     - Moya
     - ObjectMapper
     - ReactorKit
@@ -64,6 +67,7 @@ SPEC CHECKSUMS:
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   ReactorKit: 6d894a20c3d508344320901cd8e386fde92df4b6
@@ -74,6 +78,6 @@ SPEC CHECKSUMS:
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: ade04060485646b62159eec6bf8a67e77804c603
+PODFILE CHECKSUM: a6368c042ab3774d0442c7faa5e44173e8b26362
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.9.1
