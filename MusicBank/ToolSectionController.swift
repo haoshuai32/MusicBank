@@ -48,7 +48,7 @@ class ToolSectionController: ListSectionController {
 
     
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 45)
+        return CGSize(width: collectionContext!.containerSize.width, height: 120)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -79,13 +79,14 @@ class ToolSectionController: ListSectionController {
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         nil
     }
+    
     var selectIndex = 0
     func toolItemDidSelectItem(at index: Int) {
         selectIndex = index
         let x = index * 61
-        UIView.animate(withDuration: 0.25) {
-            self.bottomLineView?.frame = CGRect(x: x, y: 0, width: 61, height: 5)
-        }
+//        UIView.animate(withDuration: 0.25) {
+//            self.bottomLineView?.frame = CGRect(x: x, y: 0, width: 61, height: 5)
+//        }
     }
     
 }

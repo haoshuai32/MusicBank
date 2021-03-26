@@ -263,8 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				2868F7C92608750100110F54 /* Views */,
-				2868F7C02608740200110F54 /* ToolSectionController.swift */,
-				2868F7E42608861800110F54 /* ToolItemSectionController.swift */,
 			);
 			name = SectionControllers;
 			sourceTree = "<group>";
@@ -274,8 +272,10 @@
 			children = (
 				2868F7CA2608753700110F54 /* ToolCell.swift */,
 				2868F7CB2608753700110F54 /* ToolCell.xib */,
+				2868F7C02608740200110F54 /* ToolSectionController.swift */,
 				2868F7DA2608851900110F54 /* ToolItemCell.swift */,
 				2868F7DB2608851900110F54 /* ToolItemCell.xib */,
+				2868F7E42608861800110F54 /* ToolItemSectionController.swift */,
 				2E92997C2608E890006AB6C3 /* MusicBankSongListHeaderCell.swift */,
 				2E92997D2608E890006AB6C3 /* MusicBankSongListHeaderCell.xib */,
 			);

@@ -9,9 +9,6 @@
 import Foundation
 import IGListKit
 
-//class ToolItemSectionController: <#super class#> {
-//    <#code#>
-//}
 
 protocol ToolItemSectionControllerDe {
     func toolItemDidSelectItem(at index: Int)
@@ -21,6 +18,12 @@ class ToolItemSectionController: ListSectionController {
     
     private var number: Int?
     
+    override init() {
+        super.init()
+        
+        
+    }
+    
     var de: ToolItemSectionControllerDe?
     
     override func numberOfItems() -> Int {
@@ -28,7 +31,7 @@ class ToolItemSectionController: ListSectionController {
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: 61, height: 45)
+        return CGSize(width: kItemWidth, height: kItemWidth)
     }
 
     override func cellForItem(at index: Int) -> UICollectionViewCell {
