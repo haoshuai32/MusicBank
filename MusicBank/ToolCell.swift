@@ -140,7 +140,7 @@ class ToolCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath) as? ToolItemCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ToolItemCell", for: indexPath) as? ToolItemCell else {
             fatalError()
         }
         cell.nameLabel.text = "\(indexPath.item)"
@@ -163,6 +163,7 @@ class ToolCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionView
         layout.scrollDirection = .horizontal
         colleciontView.decelerationRate = .fast
         colleciontView.setCollectionViewLayout(layout, animated: false)
+        colleciontView.register(UINib(nibName: "ToolItemCell", bundle: nil), forCellWithReuseIdentifier: "ToolItemCell")
         colleciontView.delegate = self
         colleciontView.dataSource = self
     }

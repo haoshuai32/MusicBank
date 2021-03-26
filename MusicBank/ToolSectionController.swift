@@ -34,13 +34,13 @@ class ToolSectionController: ListSectionController {
     private var bottomLineView: UIView?
 
     
-    private
-    lazy var adapter: ListAdapter = {
-        let adapter = ListAdapter(updater: ListAdapterUpdater(),
-                                  viewController: self.viewController)
-        adapter.dataSource = self
-        return adapter
-    }()
+//    private
+//    lazy var adapter: ListAdapter = {
+//        let adapter = ListAdapter(updater: ListAdapterUpdater(),
+//                                  viewController: self.viewController)
+//        adapter.dataSource = self
+//        return adapter
+//    }()
     
     override func numberOfItems() -> Int {
         return 1
@@ -56,41 +56,41 @@ class ToolSectionController: ListSectionController {
             fatalError()
         }
         
-        adapter.collectionView = cell.colleciontView
-        bottomLineView = cell.bottomLineView
+//        adapter.collectionView = cell.colleciontView
+//        bottomLineView = cell.bottomLineView
         return cell
     }
     
-    
-    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return (0...20).map{NSNumber.init(value: $0)}
-    }
-    
-    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        let sc = ToolItemSectionController()
-        sc.de = self
-        return sc
-    }
-    
-    override func didUpdate(to object: Any) {
-        number = object as? Int
-    }
-    
-    func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        nil
-    }
-    
-    var selectIndex = 0
-    func toolItemDidSelectItem(at index: Int) {
-        selectIndex = index
-        let x = index * 61
-//        UIView.animate(withDuration: 0.25) {
-//            self.bottomLineView?.frame = CGRect(x: x, y: 0, width: 61, height: 5)
-//        }
-    }
+//
+//    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+//        return (0...20).map{NSNumber.init(value: $0)}
+//    }
+//
+//    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+//        let sc = ToolItemSectionController()
+//        sc.de = self
+//        return sc
+//    }
+//
+//    override func didUpdate(to object: Any) {
+//        number = object as? Int
+//    }
+//
+//    func emptyView(for listAdapter: ListAdapter) -> UIView? {
+//        nil
+//    }
+//
+//    var selectIndex = 0
+//    func toolItemDidSelectItem(at index: Int) {
+//        selectIndex = index
+//        let x = index * 61
+////        UIView.animate(withDuration: 0.25) {
+////            self.bottomLineView?.frame = CGRect(x: x, y: 0, width: 61, height: 5)
+////        }
+//    }
     
 }
 
-extension ToolSectionController: ListAdapterDataSource,ToolItemSectionControllerDe {
-
-}
+//extension ToolSectionController: ListAdapterDataSource,ToolItemSectionControllerDe {
+//
+//}
