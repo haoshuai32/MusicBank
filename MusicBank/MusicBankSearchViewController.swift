@@ -10,69 +10,69 @@ import UIKit
 import IGListKit
 import RxSwift
 import RxCocoa
+
+class NumberText: ListDiffable {
+    func diffIdentifier() -> NSObjectProtocol {
+        return self.id as NSObjectProtocol
+    }
+    
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        guard let data = object as? NumberText  else {
+            return false
+        }
+        return self.id == data.id
+    }
+    
+    let id: Int
+    let text: String
+    init(id: Int, text: String) {
+        self.id = id
+        self.text = text
+    }
+}
+
 class MusicBankSearchViewController: MusicBankViewController,UIScrollViewDelegate {
 
     @IBOutlet weak var collectionView:ListCollectionView!
     
-    private
-    lazy var adapter: ListAdapter = {
-         return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
-    }()
-    var childCanScroll = false
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
-        adapter.collectionView = collectionView
-        adapter.dataSource = self
-        adapter.scrollViewDelegate = self
-        
-        NotificationCenter.default.rx
-            .notification(Notification.Name.ScrollEnabled.Find)
-            .subscribe(onNext: { (noti) in
-                guard let isScrollEnabled = noti.object as? Bool else {
-                    return
-                }
-                debugPrint("设置子视图滑动状态", isScrollEnabled)
-                self.childCanScroll = isScrollEnabled
-            })
-            .disposed(by: disposeBag)
-        
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        debugPrint("子视图滑动", scrollView.contentOffset.y, childCanScroll)
-        if !childCanScroll {
-            scrollView.contentOffset.y = 0
-        } else {
-            if scrollView.contentOffset.y <= 0 {
-                childCanScroll = false
-                debugPrint("发送父试图滑动状态")
-                NotificationCenter.default.post(name: NSNotification.Name.ScrollEnabled.Mine, object: true)
-            }
-        }
-    }
+//    lazy var dataSource: [NumberText] = {
+//        let data = (0...30).map{NumberText(id: $0, text: "我是文本\($0)")}
+//        return data
+//    }()
+//
+//    private
+//    lazy var adapter: ListAdapter = {
+//         return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+//    }()
+//    var childCanScroll = false
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        debugPrint("重写创建")
+//        collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
+//        adapter.collectionView = collectionView
+//        adapter.dataSource = self
+//    }
     
 }
 
 
 // MARK: ListAdapterDataSource
-extension MusicBankSearchViewController:ListAdapterDataSource {
-    
-    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return (1..<20).map{NSNumber.init(value: $0)}
-    }
-    
-    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return MusicBankSongSectionController()
-    }
-    
-    func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        return nil
-    }
-    
-    
-}
+//extension MusicBankSearchViewController:ListAdapterDataSource {
+//    
+//    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+//        return dataSource
+//    }
+//
+//    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+//        return ToolItemSectionController()
+//    }
+//
+//    func emptyView(for listAdapter: ListAdapter) -> UIView? {
+//        return nil
+//    }
+//    
+//    
+//}
 
 

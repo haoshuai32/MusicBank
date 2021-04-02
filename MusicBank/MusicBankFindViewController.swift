@@ -18,23 +18,22 @@ class MusicBankFindViewController: MusicBankViewController {
     
     @IBOutlet var microphoneButton: UIButton!
     
+    var dataSource: [NumberText] = []
+
+    
     private
     lazy var adapter: ListAdapter = {
          return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
-    
-   
-    
+    var childCanScroll = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = searchBar
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: microphoneButton)
+        
+        dataSource = (0...30).map{NumberText(id: $0, text: "我是文本\($0)")}
         
         collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
         adapter.collectionView = collectionView
         adapter.dataSource = self
-        
-        
     }
     
     @IBAction func searchButtonAction(_ sender: Any) {
@@ -49,16 +48,10 @@ class MusicBankFindViewController: MusicBankViewController {
 extension MusicBankFindViewController:ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [1,2].map{NSNumber.init(value: $0)}
+        return dataSource
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        guard let data = object as? Int else {
-            fatalError()
-        }
-        if data == 1 {
-            return ToolSectionController()
-        }
         return ToolItemSectionController()
     }
     

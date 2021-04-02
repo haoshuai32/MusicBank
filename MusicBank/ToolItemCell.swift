@@ -7,10 +7,19 @@
 //
 
 import UIKit
-
-class ToolItemCell: UICollectionViewCell {
+import IGListKit
+class ToolItemCell: UICollectionViewCell,ListBindable {
 
     @IBOutlet weak var nameLabel: UILabel!
+    
+    func bindViewModel(_ viewModel: Any) {
+        guard let data = viewModel as? NumberText else {
+            assert(false)
+            return
+        }
+        debugPrint("绑定数据模型",data.text)
+        self.nameLabel.text = data.text
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -41,7 +41,7 @@
             <connections>
                 <outlet property="colleciontView" destination="FwX-Yy-mEB" id="GlO-26-Ynh"/>
             </connections>
-            <point key="canvasLocation" x="-184.05797101449278" y="77.008928571428569"/>
+            <point key="canvasLocation" x="196" y="59"/>
         </collectionViewCell>
     </objects>
     <resources>

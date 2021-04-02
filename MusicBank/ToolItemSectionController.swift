@@ -9,32 +9,58 @@
 import Foundation
 import IGListKit
 
-class ToolItemSectionController: ListSectionController {
+class ToolItemSectionController: ListBindingSectionController<ListDiffable>,
+                                 ListBindingSectionControllerDataSource,
+                                 ListBindingSectionControllerSelectionDelegate{
     
-    private var number: Int?
+    var text: NumberText?
     
-    
-    override func numberOfItems() -> Int {
-        if number == 1 {
-            return 1
+    override init() {
+        super.init()
+        self.dataSource = self
+        self.selectionDelegate = self
+    }
+    // MARK: ListBindingSectionControllerDataSource
+    func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, viewModelsFor object: Any) -> [ListDiffable] {
+        if let data = text {
+            debugPrint("重新设置数据1",data.text)
+            return [data]
         }
-        return 1
+        
+        guard let data = object as? NumberText else {
+            return []
+        }
+        debugPrint("重新设置数据2",data.text)
+        return [data]
     }
     
-    override func sizeForItem(at index: Int) -> CGSize {
-        let height = collectionContext?.containerSize.height ?? 0
-        return CGSize(width: height, height: height)
-    }
-
-    override func cellForItem(at index: Int) -> UICollectionViewCell {
+    func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
         let cell = collectionContext?.dequeueReusableCell(withNibName: "ToolItemCell", bundle: nil, for: self, at: index) as! ToolItemCell
-        let value = number ?? 0 + index
-        cell.nameLabel.text = "\(value + 1)"
         return cell
     }
-
-    override func didUpdate(to object: Any) {
-        number = object as? Int
-        debugPrint("我的数据",number)
+    
+    func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, sizeForViewModel viewModel: Any, at index: Int) -> CGSize {
+        let height = collectionContext?.containerSize.width ?? 0
+        return CGSize(width: height, height: 80)
     }
+    
+
+
+
+    // MARK: ListBindingSectionControllerSelectionDelegate
+
+    func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didSelectItemAt index: Int, viewModel: Any) {
+        guard let data = viewModel as? NumberText else { return }
+        
+        debugPrint("点击重新刷数据",data.id)
+        // id需要变化才可以进行数据的绑定
+        text = NumberText(id: data.id + 50, text: "我是新刷新的数据\(data.id)")
+        update(animated: true)
+    }
+
+    func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didDeselectItemAt index: Int, viewModel: Any) {}
+
+    func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didHighlightItemAt index: Int, viewModel: Any) {}
+
+    func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didUnhighlightItemAt index: Int, viewModel: Any) {}
 }
