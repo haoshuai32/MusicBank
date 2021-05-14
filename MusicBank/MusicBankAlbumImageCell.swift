@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IGListKit
 
 class MusicBankAlbumImageCell: UICollectionViewCell {
 
@@ -25,4 +26,33 @@ class MusicBankAlbumImageCell: UICollectionViewCell {
         // Initialization code
     }
 
+}
+
+
+class MusicBankAlbumImageSectionController: ListSectionController {
+    
+    var dataSource: Int?
+    
+    override func numberOfItems() -> Int {
+        return 1
+    }
+    
+    override func sizeForItem(at index: Int) -> CGSize {
+        
+        return CGSize(width: UIScreen.main.bounds.width, height: 72.5)
+    }
+
+    override func cellForItem(at index: Int) -> UICollectionViewCell {
+        let cell = collectionContext?.dequeueReusableCell(withNibName: "MusicBankAlbumImageCell", bundle: nil, for: self, at: index) as! MusicBankAlbumImageCell
+        return cell
+    }
+
+    override func didUpdate(to object: Any) {
+        guard let data = object as? NSNumber else {
+            fatalError()
+        }
+        self.dataSource = data.intValue
+    }
+    
+    
 }

@@ -35,5 +35,7 @@ class BannerSectionController: ListSectionController {
 //        }
         dataSource = [BannerItemModel(id: 0),BannerItemModel(id: 1),BannerItemModel(id: 2)]
     }
-    
+    override func didSelectItem(at index: Int) {
+        
+    }
 }

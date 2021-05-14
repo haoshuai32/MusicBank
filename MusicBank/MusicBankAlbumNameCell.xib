@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MusicBankAlbumCell" customModule="MusicBank" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MusicBankAlbumNameCell" customModule="MusicBank" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="439" height="82"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -52,9 +52,9 @@
             </constraints>
             <size key="customSize" width="439" height="86"/>
             <connections>
-                <outlet property="detailsLabel" destination="9Qg-CL-z9n" id="BrH-yl-Vkg"/>
-                <outlet property="imageView" destination="4w2-SO-Xde" id="D1Q-NX-Gpm"/>
-                <outlet property="titleLabel" destination="u0B-ME-kfg" id="Wgw-Lk-EBi"/>
+                <outlet property="detailsLabel" destination="9Qg-CL-z9n" id="8tU-qN-qQI"/>
+                <outlet property="imageView" destination="4w2-SO-Xde" id="NPR-ng-DQX"/>
+                <outlet property="titleLabel" destination="u0B-ME-kfg" id="7EA-rb-RQz"/>
             </connections>
             <point key="canvasLocation" x="213.768115942029" y="-56.25"/>
         </collectionViewCell>

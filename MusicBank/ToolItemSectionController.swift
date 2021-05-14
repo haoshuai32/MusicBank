@@ -9,14 +9,24 @@
 import Foundation
 import IGListKit
 
+<<<<<<< HEAD
 class ToolItemSectionController: ListBindingSectionController<ListDiffable>,
                                  ListBindingSectionControllerDataSource,
                                  ListBindingSectionControllerSelectionDelegate{
+=======
+
+protocol ToolItemSectionControllerDe {
+    func toolItemDidSelectItem(at index: Int)
+}
+
+class ToolItemSectionController: ListSectionController {
+>>>>>>> d7295c5c041c57d5811f8b41d697edbb93d70268
     
     var text: NumberText?
     
     override init() {
         super.init()
+<<<<<<< HEAD
         self.dataSource = self
         self.selectionDelegate = self
     }
@@ -35,6 +45,23 @@ class ToolItemSectionController: ListBindingSectionController<ListDiffable>,
     }
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
+=======
+        
+        
+    }
+    
+    var de: ToolItemSectionControllerDe?
+    
+    override func numberOfItems() -> Int {
+        return 1
+    }
+    
+    override func sizeForItem(at index: Int) -> CGSize {
+        return CGSize(width: kItemWidth, height: kItemWidth)
+    }
+
+    override func cellForItem(at index: Int) -> UICollectionViewCell {
+>>>>>>> d7295c5c041c57d5811f8b41d697edbb93d70268
         let cell = collectionContext?.dequeueReusableCell(withNibName: "ToolItemCell", bundle: nil, for: self, at: index) as! ToolItemCell
         return cell
     }
@@ -49,6 +76,7 @@ class ToolItemSectionController: ListBindingSectionController<ListDiffable>,
 
     // MARK: ListBindingSectionControllerSelectionDelegate
 
+<<<<<<< HEAD
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didSelectItemAt index: Int, viewModel: Any) {
         guard let data = viewModel as? NumberText else { return }
         
@@ -56,6 +84,24 @@ class ToolItemSectionController: ListBindingSectionController<ListDiffable>,
         // id需要变化才可以进行数据的绑定
         text = NumberText(id: data.id + 50, text: "我是新刷新的数据\(data.id)")
         update(animated: true)
+=======
+    override func didUpdate(to object: Any) {
+        number = object as? Int
+    }
+    
+    
+    override func didSelectItem(at index: Int) {
+        debugPrint("选中",index)
+        de?.toolItemDidSelectItem(at: number!)
+//        if index == selectIndex {
+//            return
+//        }
+//
+        
+
+        
+        
+>>>>>>> d7295c5c041c57d5811f8b41d697edbb93d70268
     }
 
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didDeselectItemAt index: Int, viewModel: Any) {}

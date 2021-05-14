@@ -10,6 +10,7 @@ target 'MusicBank' do
   pod 'Moya/RxSwift'
 
   pod 'RxDataSources'
+  
   pod 'Reusable'
   
   pod 'ObjectMapper'
@@ -22,7 +23,8 @@ target 'MusicBank' do
   
   pod 'IGListKit'
    
-#  pod 'IGListSwiftKit'
+  pod 'MJRefresh'
+  # pod 'IGListSwiftKit'
   
   target 'MusicBankTests' do
     inherit! :search_paths
