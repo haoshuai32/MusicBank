@@ -8,27 +8,53 @@
 
 import UIKit
 import IGListKit
+import RxSwift
 
-class MusicBankSongListViewController: MusicBankViewController {
+class MusicBankSongListViewController: MusicBankViewController,
+                                       ListAdapterDataSource,
+                                       MusicBankSearchListViewController {
+    var loading: Bool = false
+    
+    let reloadToken: String = "reload"
+    
+    let loadMoreToken: String = "loadMore"
+    
+    var keyword: String?
+    
+    var pageIndex: Int = 0
+    
+    let pageSize: Int = 20
+    
+    var dataSource: [ListDiffable] = []
+    
 
     @IBOutlet weak var collectionView:ListCollectionView!
     
-    private
+    
     lazy var adapter: ListAdapter = {
          return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bing()
+        
         collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
         adapter.collectionView = collectionView
         adapter.dataSource = self
+        
     }
     
-}
-
-// MARK: ListAdapterDataSource
-extension MusicBankSongListViewController:ListAdapterDataSource {
     
+    func reload() {
+        
+    }
+    
+    func loadMore() {
+        
+    }
+    
+    // MARK: ListAdapterDataSource
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return (1..<20).map{NSNumber.init(value: $0)}
     }
@@ -40,5 +66,5 @@ extension MusicBankSongListViewController:ListAdapterDataSource {
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
     }
-    
 }
+

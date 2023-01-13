@@ -10,46 +10,64 @@ import UIKit
 import IGListKit
 import MJRefresh
 
+
+
 class MusicBankFindViewController: MusicBankViewController {
 
+    var dataSource: [ListDiffable] = []
+    
     @IBOutlet weak var collectionView: ListCollectionView!
     
     @IBOutlet var searchBar: UISearchBar!
     
     @IBOutlet var microphoneButton: UIButton!
     
-    var dataSource: [NumberText] = []
-
-    
-    private
     lazy var adapter: ListAdapter = {
          return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
-    var childCanScroll = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-<<<<<<< HEAD
-        dataSource = (0...30).map{NumberText(id: $0, text: "我是文本\($0)")}
-=======
+        let naviList = [
+            MusicBankNavigationBarItemModel(name: "每日推荐", image: UIImage(named: "1")!),
+            MusicBankNavigationBarItemModel(name: "私人FM", image: UIImage(named: "2")!),
+            MusicBankNavigationBarItemModel(name: "歌单", image: UIImage(named: "2")!),
+            MusicBankNavigationBarItemModel(name: "排行榜", image: UIImage(named: "3")!),
+            MusicBankNavigationBarItemModel(name: "游戏专区", image: UIImage(named: "3")!),
+            MusicBankNavigationBarItemModel(name: "歌房", image: UIImage(named: "1")!),
+            MusicBankNavigationBarItemModel(name: "直播", image: UIImage(named: "1")!),
+            
+        ]
+        let bar = MusicBankNavigationBarListModel(id: naviList.count, list: naviList)
+        self.dataSource.append(bar)
+
+        
+        let songList = [
+            MusicBankSongItemModel(id: 1, playCount: 23, image: UIImage(named: "3")!, name: "心如刀割", logo: false),
+            MusicBankSongItemModel(id: 2, playCount: 12, image: UIImage(named: "3")!, name: "她来听我演唱会,我 听你的你说什么是什么", logo: false),
+            MusicBankSongItemModel(id: 3, playCount: 31, image: UIImage(named: "3")!, name: "情书", logo: false),
+            MusicBankSongItemModel(id: 4, playCount: 1, image: UIImage(named: "3")!, name: "他在哪里", logo: false),
+            MusicBankSongItemModel(id: 5, playCount: 90, image: UIImage(named: "3")!, name: "情网", logo: false),
+            MusicBankSongItemModel(id: 6, playCount: 100, image: UIImage(named: "3")!, name: "如果这都不算爱", logo: false),
+            MusicBankSongItemModel(id: 7, playCount: 200, image: UIImage(named: "3")!, name: "慢慢", logo: false),
+        ]
+        
+        let song = MusicBankSongListModel(list: songList)
+        self.dataSource.append(song)
+        
+        
         self.navigationItem.titleView = searchBar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: microphoneButton)
->>>>>>> d7295c5c041c57d5811f8b41d697edbb93d70268
         
         collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
         adapter.collectionView = collectionView
         adapter.dataSource = self
-<<<<<<< HEAD
-=======
         
-//        collectionView.mj_header = MJRefreshNormalHeader()
->>>>>>> d7295c5c041c57d5811f8b41d697edbb93d70268
     }
     
     @IBAction func searchButtonAction(_ sender: Any) {
-        let vc = UIStoryboard.Main.instantiate(MusicBankPlayerViewController.self)
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        
     }
     
 }
@@ -58,22 +76,17 @@ class MusicBankFindViewController: MusicBankViewController {
 extension MusicBankFindViewController:ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-<<<<<<< HEAD
         return dataSource
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return ToolItemSectionController()
-=======
-        return [1].map{NSNumber.init(value: $0)}
-    }
-    
-    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        guard let data = object as? Int else {
-            fatalError()
+        if object is MusicBankNavigationBarListModel {
+            return MusicBankNavigationSectionController()
         }
-        return ToolSectionController()
->>>>>>> d7295c5c041c57d5811f8b41d697edbb93d70268
+        if object is MusicBankSongListModel {
+            return MusicBankSongListSectionController()
+        }
+        fatalError()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {

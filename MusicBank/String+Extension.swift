@@ -47,11 +47,3 @@ extension String {
     
 }
 
-
-
-extension Notification.Name {
-    struct ScrollEnabled {
-        static let Find = Notification.Name.init("isScrollEnabled.Find")
-        static let Mine = Notification.Name.init("isScrollEnabled.Main")
-    }
-}

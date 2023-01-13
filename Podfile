@@ -24,6 +24,16 @@ target 'MusicBank' do
   pod 'IGListKit'
    
   pod 'MJRefresh'
+
+  pod 'XCGLogger'
+
+  pod 'IQKeyboardManagerSwift'
+  
+  pod 'PromiseKit'
+
+  pod 'Then'
+
+
   # pod 'IGListSwiftKit'
   
   target 'MusicBankTests' do

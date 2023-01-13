@@ -10,6 +10,8 @@ import UIKit
 import Kingfisher
 import MediaPlayer
 
+// 音乐播放需要用单里
+
 class MusicBankPlayerViewController: MusicBankViewController {
 
     /*---------------------- background ------------------------*/
@@ -99,15 +101,20 @@ class MusicBankPlayerViewController: MusicBankViewController {
         // Do any additional setup after loading the view.
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if self.artistBackgroundImageView.tag == 0 {
+//
+//        }
+//    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if self.artistBackgroundImageView.tag == 0 {
-            self.artistBackgroundImageView.tag = 100
-            self.artistBackgroundImageView.layer.cornerRadius = self.artistBackgroundImageView.frame.width / 2.0
-            self.artistBackgroundView.layer.cornerRadius = self.artistBackgroundView.frame.width / 2.0
-            self.artistImageView.layer.cornerRadius = self.artistImageView.frame.width / 2.0
-            self.positionButton.layer.cornerRadius = self.positionButton.frame.width / 2.0
-        }
+        self.artistBackgroundImageView.tag = 100
+        self.artistBackgroundImageView.layer.cornerRadius = self.artistBackgroundImageView.frame.width / 2.0
+        self.artistBackgroundView.layer.cornerRadius = self.artistBackgroundView.frame.width / 2.0
+        self.artistImageView.layer.cornerRadius = self.artistImageView.frame.width / 2.0
+        self.positionButton.layer.cornerRadius = self.positionButton.frame.width / 2.0
     }
         
     private
@@ -118,7 +125,7 @@ class MusicBankPlayerViewController: MusicBankViewController {
         rotationAnimation.toValue = Double.pi * 2.0
         rotationAnimation.duration = 1.25
         rotationAnimation.isCumulative = true
-        rotationAnimation.repeatCount = Float.infinity
+        rotationAnimation.repeatCount = 10
         rotationAnimation.fillMode = .forwards
         artistImageView.layer.add(rotationAnimation, forKey: "rotationAnimation")
         
@@ -234,11 +241,12 @@ extension MusicBankPlayerViewController: MusicBankPlayerDelegate {
     }
     
     func playerFailed(player: AVPlayer, asset: AVPlayerItem?, error: Error?) {
+        
         debugPrint("播放失败",error)
     }
     
     func player(player: AVPlayer, asset: AVPlayerItem, position: Float, duration: Float) {
-        return
+        
         let multiplier = position / duration
         
         let width = multiplier * Float(self.durationView.frame.width)
